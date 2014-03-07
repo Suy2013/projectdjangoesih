@@ -49,7 +49,7 @@
                     <ul class="menuprof">
                         <li>Voir
                             <ul>
-                                <li style="width: 100%;"><a href="/admin/cours/affectation/{{cours.id}}/">Ajouter</a></li>
+                                {%  ifnotequal user.type "Prof"  %}<li style="width: 100%;"><a href="/admin/cours/affectation/{{cours.id}}/">Ajouter</a></li>{% endifnotequal %}
                                 {% for professeur in cours.prof.all %}
                                 <li style="width: 100%;"><a href="/viewcv/{{professeur.id}}/"> {{professeur.nom}}</a></li>
                                 {% endfor %}

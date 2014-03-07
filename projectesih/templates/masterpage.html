@@ -141,7 +141,7 @@
                 <li><a href="/admin/cours/">Décrire un cours</a></li>
             {% endifequal %}
             {% ifequal user.type "Prof" %}
-                <li><a href="/prof/">Accueil</a></li>
+                <li><a href="/profindex/{{ userprof.id }}/">Accueil</a></li>
                 <li><a href="/cours/{{ userprof.id }}/">Cours</a></li>
                 <li><a href="/editcv/{{ userprof.id }}/">Modifier Cv</a></li>
                 <li><a href="/viewcv/{{ userprof.id }}/">Voir CV</a></li>
