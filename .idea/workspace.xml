@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52d0e99a-c29d-426c-8f34-f343a8430cf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/settings.py" afterPath="$PROJECT_DIR$/projectesih/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/views.py" afterPath="$PROJECT_DIR$/admin/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projectesih.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="31" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="16320">
+            <state line="45" column="12" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.71428573" vertical-offset="255" max-vertical-offset="16320">
               <folding />
             </state>
           </provider>
@@ -91,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.13783784" vertical-offset="1615" max-vertical-offset="2210">
+            <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="2210">
               <folding />
             </state>
           </provider>
@@ -187,10 +188,10 @@
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/editercv.html" />
         <option value="$PROJECT_DIR$/professeur/views.py" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html" />
-        <option value="$PROJECT_DIR$/admin/views.py" />
         <option value="$PROJECT_DIR$/projectesih/templates/masterpage.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/list.html" />
         <option value="$PROJECT_DIR$/projectesih/settings.py" />
+        <option value="$PROJECT_DIR$/admin/views.py" />
       </list>
     </option>
   </component>
@@ -1021,13 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/professeur/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="397" column="49" selection-start="15677" selection-end="15677" vertical-scroll-proportion="-8.0" vertical-offset="6447" max-vertical-offset="7956">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="37" selection-start="286" selection-end="286" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1054">
@@ -1040,13 +1034,6 @@
     <entry file="file://$PROJECT_DIR$/admin/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="41" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="31" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="16320">
           <folding />
         </state>
       </provider>
@@ -1067,7 +1054,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.13783784" vertical-offset="1615" max-vertical-offset="2210">
+        <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="2210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/professeur/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="397" column="49" selection-start="15677" selection-end="15677" vertical-scroll-proportion="-8.0" vertical-offset="6447" max-vertical-offset="7956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="12" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.71428573" vertical-offset="255" max-vertical-offset="16320">
           <folding />
         </state>
       </provider>

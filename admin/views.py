@@ -42,7 +42,7 @@ def home(request):
         if user.type.__eq__(Type.PROF):
             profe=UserProf.objects.get(user_id=user.id).professeur
             dic['userprof']=profe
-            return redirect("/prof/{}/".format(profe.id))
+            return redirect("/profindex/{}/".format(profe.id))
         try:
             choix = request.GET['choixdash']
         except:
