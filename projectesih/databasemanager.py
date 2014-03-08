@@ -146,7 +146,9 @@ class ManageCours:
 
     def searchByCode(self,id):
         cours = Cours.objects.filter(codecours_id=id)
-        return cours[0]
+        print "ok......"
+        #print "length "+len(cours)
+        return cours
 
     def listall(self):
         list = Cours.objects.all()
@@ -157,13 +159,15 @@ class ManageCours:
         list1 = []
         for cours in list:
             for prof in cours.prof.all():
-                if prof.id==id:
-                    list1.append(cours.codecours)
+                if str(prof.id).__eq__(str(id)):
+                    print "add"
+                    list1.append(cours)
                 print prof.id,id
         print list1
         return list1
 
     def calculNbrHreCours(self,ects):
-        return ects *  15
+        t = ects *  15
+        return t
 
 

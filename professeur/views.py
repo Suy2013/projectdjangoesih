@@ -186,10 +186,15 @@ def listcoursprof(request,id):
     if session==None:
         return redirect("/admin/")
     user = manageUser.searchById(request.session['userid'])
+    dic = {'login':True,'user':user}
+    if user.type.__eq__("Prof"):
+        p=manageProf.getProf(user)
+        dic['userprof']=p
     t = get_template('admin/cours/list.html')
     list = manageCours.listcp(id)
-    return HttpResponse(list)
-    html = t.render(Context({'login':True,'list':list,'user':user}))
+    dic['list']=list
+    #return HttpResponse(len(list))
+    html = t.render(Context(dic))
     return HttpResponse(html)
 
 def editCV(request, id):
@@ -258,11 +263,15 @@ def editCV(request, id):
     if str(action).__eq__('exper'):
         de = None
         a = None
+        now = None
         fonction = None
         entreprise = None
         try:
             de = request.POST['de']
-            a = request.POST['a']
+            if 'a' in request.POST:
+                a = request.POST['a']
+            if 'now' in request.POST:
+                now = request.POST['now']
             fonction = request.POST['fonction']
             entreprise = request.POST['entreprise']
         except KeyError:
@@ -270,7 +279,7 @@ def editCV(request, id):
         valid = True
         if a != None and de != None and fonction != None and entreprise != None:
             professor = manageProf.searchById(id)
-            experience = Experience(a=a, de=de, fonction=fonction, entreprise=entreprise,professor=professor)
+            experience = Experience(now=now, a=a, de=de, fonction=fonction, entreprise=entreprise,professor=professor)
             experience.save()
             professor = manageProf.searchById(id)
             formations = manageProf.searchFormation(professor)
@@ -422,3 +431,23 @@ def editCV(request, id):
     t = get_template('professeur/editercv.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
+
+def delformations(request, id, id1):
+    Formation.objects.get(id=id1).delete()
+    return redirect("/editcv/{}/".format(id))
+
+def delcompetencesorg(request, id, id1):
+    CompetenceOrg.objects.get(id=id1).delete()
+    return redirect("/editcv/{}/".format(id))
+
+def delcompetencescom(request, id, id1):
+    CompetenceCom.objects.get(id=id1).delete()
+    return redirect("/editcv/{}/".format(id))
+
+def delcompetencesinfo(request, id, id1):
+    CompetenceInfo.objects.get(id=id1).delete()
+    return redirect("/editcv/{}/".format(id))
+
+def delexperiences(request, id, id1):
+    Experience.objects.get(id=id1).delete()
+    return redirect("/editcv/{}/".format(id))

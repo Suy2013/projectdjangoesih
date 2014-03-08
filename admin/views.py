@@ -5,6 +5,10 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
 from projectesih.util.fonctionalite import Action
+from projectesih.util.domaine import Domaine
+from projectesih.util.mention import Mention
+from projectesih.util.gradeEtsemestre import Grade
+from projectesih.util.specialite import Specialite
 from projectesih.databasemanager import ManageUser, ManageCours, ManageCodeCours, ManageProfesseur
 from admin.models import Type, Cours,User,UserProf
 from django.db import IntegrityError
@@ -39,160 +43,242 @@ def home(request):
             profe=UserProf.objects.get(user_id=user.id).professeur
             dic['userprof']=profe
             return redirect("/prof/{}/".format(profe.id))
-
-        try:
-            choix = request.POST['choixdash']
-            if choix.__eq__('v'):
-                codes = CodeCours.objects.all()
-
-                dictio = {}
-                c = ""
-                for code in codes:
-                    dictio[code.grade] = []
-                for code in codes:
-                    cours = managecours.searchByCode(code)
-                    c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
-                    if cours != None:
-                        #volumeH.append(managecours.calculNbrHreCours(cours))
-                        list = dictio[code.grade]
-                        list.append(managecours.calculNbrHreCours(cours))
-                        dictio[code.grade] = list
-                l = []
-                for key, value in dictio.items():
-                    color = 'red'
-                    if key.__eq__('DUT1'):
-                        color = '#83A697'
-                    if key.__eq__('DUT2'):
-                        color = '#112222'
-                    if key.__eq__('L1'):
-                        color = '#002277'
-                    if key.__eq__('L2'):
-                        color = '#8800ee'
-                    if key.__eq__('L3'):
-                        color = '#ccff44'
-                    if key.__eq__('M1'):
-                        color = '#83A697'
-                    if key.__eq__('M2'):
-                        color = '#83A697'
-                    l.append((key, sommedictio(value), color))
-                if len(l) > 0:
-                    dic['dash'] = l
-                    dic['max'] = 1200
-                    dic['titledash'] = 'volume horaire'
-            if choix.__eq__('e'):
-                codes = CodeCours.objects.all()
-
-                dictio = {}
-                c = ""
-                for code in codes:
-                    dictio[code.grade] = []
-                for code in codes:
-                    cours = managecours.searchByCode(code)
-                    c = "{}--{}".format(c, cours.ects)
-                    if cours != None:
-                        #volumeH.append(managecours.calculNbrHreCours(cours))
-                        list = dictio[code.grade]
-                        list.append(cours.ects)
-                        dictio[code.grade] = list
-                l = []
-                for key, value in dictio.items():
-                    color = 'red'
-                    if key.__eq__('DUT1'):
-                        color = '#83A697'
-                    if key.__eq__('DUT2'):
-                        color = '#112222'
-                    if key.__eq__('L1'):
-                        color = '#002277'
-                    if key.__eq__('L2'):
-                        color = '#8800ee'
-                    if key.__eq__('L3'):
-                        color = '#ccff44'
-                    if key.__eq__('M1'):
-                        color = '#83A697'
-                    if key.__eq__('M2'):
-                        color = '#83A697'
-                    l.append((key, sommedictio(value), color))
-                if len(l) > 0:
-                    dic['dash'] = l
-                    dic['max'] = 80
-                    dic['titledash'] = 'crédits ECTS'
-            if choix.__eq__('-------'):
-                codes = CodeCours.objects.all()
-
-                dictio = {}
-                c = ""
-                for code in codes:
-                    dictio[code.grade] = []
-                for code in codes:
-                    cours = managecours.searchByCode(code)
-                    c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
-                    if cours != None:
-                    #volumeH.append(managecours.calculNbrHreCours(cours))
-                        list = dictio[code.grade]
-                        list.append(managecours.calculNbrHreCours(cours))
-                        dictio[code.grade] = list
-                l = []
-                for key, value in dictio.items():
-                    color = 'red'
-                    if key.__eq__('DUT1'):
-                        color = '#83A697'
-                    if key.__eq__('DUT2'):
-                        color = '#112222'
-                    if key.__eq__('L1'):
-                        color = '#002277'
-                    if key.__eq__('L2'):
-                        color = '#8800ee'
-                    if key.__eq__('L3'):
-                        color = '#ccff44'
-                    if key.__eq__('M1'):
-                        color = '#83A697'
-                    if key.__eq__('M2'):
-                        color = '#83A697'
-                    l.append((key, sommedictio(value), color))
-                if len(l) > 0:
-                    dic['dash'] = l
-                    dic['max'] = 1200
-                    dic['titledash'] = 'volume horaire'
-        except:
+        #try:
+        choix = request.GET['choixdash']
+        if choix.__eq__('v'):
             codes = CodeCours.objects.all()
 
             dictio = {}
             c = ""
             for code in codes:
-                dictio[code.grade] = []
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        dictio[code.grade+"ST"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        dictio[code.grade+"EG"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.SDE):
+                            dictio[code.grade+"SDE"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.SC):
+                            dictio[code.grade+"SC"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                            dictio[code.grade+"TEL"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                            dictio[code.grade+"BDD"] = []
             for code in codes:
+                print code
+                print code.id
                 try:
                     cours = managecours.searchByCode(code.id)
                     #c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
-                    if cours != None:
+                    if len(cours)>0:
+
                      #volumeH.append(managecours.calculNbrHreCours(cours))
-                        list = dictio[code.grade]
-                        list.append(managecours.calculNbrHreCours(cours.ects))
-                        dictio[code.grade] = list
+                        #return HttpResponse(cours.codecours.nomcours)
+
+
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                list = dictio[code.grade+"ST"]
+                                list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                dictio[code.grade+"ST"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                list = dictio[code.grade+"EG"]
+                                list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                dictio[code.grade+"EG"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.SDE):
+                                    list = dictio[code.grade+"SDE"]
+                                    list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                    dictio[code.grade+"SDE"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.SC):
+                                    list = dictio[code.grade+"SC"]
+                                    list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                    dictio[code.grade+"SC"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                    list = dictio[code.grade+"TEL"]
+                                    list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                    dictio[code.grade+"TEL"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                    list = dictio[code.grade+"BDD"]
+                                    list.append(managecours.calculNbrHreCours(cours[0].ects))
+                                    dictio[code.grade+"BDD"] = list
+
                 except:
                     pass
             l = []
             for key, value in dictio.items():
                 color = 'red'
-                if key.__eq__('DUT1'):
+                if key.__eq__('DUT1ST'):
                     color = '#83A697'
-                if key.__eq__('DUT2'):
-                    color = '#112222'
-                if key.__eq__('L1'):
-                    color = '#002277'
-                if key.__eq__('L2'):
-                    color = '#8800ee'
-                if key.__eq__('L3'):
-                    color = '#ccff44'
-                if key.__eq__('M1'):
+                if key.__eq__('DUT2ST'):
                     color = '#83A697'
+                if key.__eq__('L1ST'):
+                    color = '#83A697'
+                if key.__eq__('L2ST'):
+                    color = '#83A697'
+                if key.__eq__('L3ST'):
+                    color = '#83A697'
+                if key.__eq__('M1TEL') or key.__eq__('M1BDD'):
+                    color = '#83A697'
+
+                if key.__eq__('L1EG'):
+                    color = '#6600FF'
+                if key.__eq__('L2EG'):
+                    color = '#6600FF'
+                if key.__eq__('L3EG'):
+                    color = '#6600FF'
+                if key.__eq__('M1SC') or key.__eq__('M1SDE'):
+                    color = '#6600FF'
+
+                if key.__eq__('PropedeutiqueST'):
+                    color = '#83A697'
+
                 if key.__eq__('M2'):
-                    color = '#83A697'
-                l.append((key, sommedictio(value), color))
+                    color = 'red'
+                val = sommedictio(value)
+                if val >0:
+                    if 'ST' in key:
+                        key = key.replace('ST','',1)
+                    l.append((key, val, color))
+            l=sorted(l)
             if len(l) > 0:
                 dic['dash'] = l
                 dic['max'] = 1200
                 dic['titledash'] = 'volume horaire'
+        else:
+            codes = CodeCours.objects.all()
+
+            dictio = {}
+            c = ""
+            for code in codes:
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        dictio[code.grade+"ST"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        dictio[code.grade+"EG"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.SDE):
+                            dictio[code.grade+"SDE"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.EG):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.SC):
+                            dictio[code.grade+"SC"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                            dictio[code.grade+"TEL"] = []
+                if code.codeprogram.domaine.__eq__(Domaine.ST):
+                    if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                            dictio[code.grade+"BDD"] = []
+            for code in codes:
+                print code
+                print code.id
+                try:
+                    cours = managecours.searchByCode(code.id)
+                    #c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
+                    if len(cours)>0:
+
+                     #volumeH.append(managecours.calculNbrHreCours(cours))
+                        #return HttpResponse(cours.codecours.nomcours)
+
+
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                list = dictio[code.grade+"ST"]
+                                list.append(cours[0].ects)
+                                dictio[code.grade+"ST"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if not code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                list = dictio[code.grade+"EG"]
+                                list.append(cours[0].ects)
+                                dictio[code.grade+"EG"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.SDE):
+                                    list = dictio[code.grade+"SDE"]
+                                    list.append(cours[0].ects)
+                                    dictio[code.grade+"SDE"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.EG):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.SC):
+                                    list = dictio[code.grade+"SC"]
+                                    list.append(cours[0].ects)
+                                    dictio[code.grade+"SC"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                    list = dictio[code.grade+"TEL"]
+                                    list.append(cours[0].ects)
+                                    dictio[code.grade+"TEL"] = list
+                        if code.codeprogram.domaine.__eq__(Domaine.ST):
+                            if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
+                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                    list = dictio[code.grade+"BDD"]
+                                    list.append(cours[0].ects)
+                                    dictio[code.grade+"BDD"] = list
+
+                except:
+                    pass
+            l = []
+            for key, value in dictio.items():
+                color = 'red'
+                if key.__eq__('DUT1ST'):
+                    color = '#83A697'
+                if key.__eq__('DUT2ST'):
+                    color = '#83A697'
+                if key.__eq__('L1ST'):
+                    color = '#83A697'
+                if key.__eq__('L2ST'):
+                    color = '#83A697'
+                if key.__eq__('L3ST'):
+                    color = '#83A697'
+                if key.__eq__('M1TEL') or key.__eq__('M1BDD'):
+                    color = '#83A697'
+
+                if key.__eq__('L1EG'):
+                    color = '#6600FF'
+                if key.__eq__('L2EG'):
+                    color = '#6600FF'
+                if key.__eq__('L3EG'):
+                    color = '#6600FF'
+                if key.__eq__('M1SC') or key.__eq__('M1SDE'):
+                    color = '#6600FF'
+
+                if key.__eq__('PropedeutiqueST'):
+                    color = '#83A697'
+
+                if key.__eq__('M2'):
+                    color = 'red'
+                val = sommedictio(value)
+                if val >0:
+                    if 'ST' in key:
+                        key = key.replace('ST','',1)
+                    l.append((key, val, color))
+            l=sorted(l)
+            if len(l) > 0:
+                dic['dash'] = l
+                dic['max'] = 45
+                dic['titledash'] = 'Nombre total credits ECTS'
         t = get_template('admin/index.html')
         html = t.render(Context(dic))
         return HttpResponse(html)
@@ -323,6 +409,9 @@ def affectprof(request,id):
     cours = managecours.searchById(id)
     professors = manageprof.listall()
     dic = {'login':True,'cours': cours,'list': professors, 'user':user}
+    if user.type.__eq__(Type.PROF):
+        profe=UserProf.objects.get(user_id=user.id).professeur
+        dic['userprof']=profe
     t = get_template('admin/cours/affectprof.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
@@ -340,6 +429,9 @@ def detailscours(request,id):
     cours = managecours.searchById(id)
 
     dic = {'login':True,'imprimmer':True, 'cours': cours, 'user':user}
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     t = get_template('admin/cours/detailscours.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
@@ -433,6 +525,9 @@ def coursform(request):
             codecours = managecours.getCodeCours()
             dic['action'] = Action.CREER
             dic['codecours'] = codecours
+            if user.type.__eq__("Prof"):
+                p=manageprof.getProf(user)
+                dic['userprof']=p
             html = t.render(Context(dic))
             return HttpResponse(html)
 
@@ -470,6 +565,9 @@ def coursobjectif(request,id):
                 return redirect("/admin/cours/description/{}/".format(r),permanent=True)
     cours = managecours.searchById(id)
     dic['cours']=cours
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     t = get_template('admin/cours/objectifs.html')
     codecours = managecours.getCodeCours()
     dic['action'] = Action.CREER
@@ -507,6 +605,9 @@ def coursdescription(request,id):
     codecours = managecours.getCodeCours()
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     cours = managecours.searchById(id)
     dic['cours']=cours
     html = t.render(Context(dic))
@@ -544,6 +645,9 @@ def coursplan(request, id):
     dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     html = t.render(Context(dic))
     return HttpResponse(html)
 
@@ -579,6 +683,9 @@ def coursressource(request,id):
     dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     html = t.render(Context(dic))
     return HttpResponse(html)
 
@@ -614,6 +721,9 @@ def coursevaluation(request,id):
     dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
+    if user.type.__eq__("Prof"):
+        p=manageprof.getProf(user)
+        dic['userprof']=p
     html = t.render(Context(dic))
     return HttpResponse(html)
 

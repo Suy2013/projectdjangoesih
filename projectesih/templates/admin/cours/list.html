@@ -11,6 +11,7 @@
             </th>
         </tr>
         <tr>
+            <th>Program</th>
             <th>Code cours</th>
             <th>Crédits ECTS</th>
             <th>Format</th>
@@ -23,6 +24,7 @@
         <tbody>
             {% for cours in list %}
             <tr>
+                <td>{{cours.codecours.codeprogram.code }}</td>
                 <td>{{cours.codecours.code}}</td>
                 <td>{{cours.ects}}</td>
                 <td>{{cours.format}}</td>

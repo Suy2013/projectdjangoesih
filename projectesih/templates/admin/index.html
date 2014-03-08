@@ -2,7 +2,7 @@
 {% block title %}Accueil{% endblock %}
 {% block content %}
     <div id="form" class="petitform" style="width:80%;background:#fff">
-        <form name="formdash" method="post" action="/admin/">
+        <form name="formdash" method="get" action="/admin/">
             <select onchange="document.getElementsByName('formdash')[0].submit()" name="choixdash">
                 <option not selected>-------</option>
                 <option value="v">
@@ -43,7 +43,7 @@
                 vAxis: {title: "{{titledash}}", minValue: 0, maxValue:{{max}}},
                 hAxis: {title: "Annee"},
                 seriesType: "bars",
-                series: {5: {type: "line"}, color: 'red'}
+                series: {3: {type: "line"}, color: 'red'}
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));

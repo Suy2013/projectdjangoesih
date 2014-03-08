@@ -2,6 +2,7 @@ __author__ = 'Cadichon'
 class Semestre:
     SUN ="S1"
     SDEUX = "S2"
+    YEAR = "Y"
 
 class Grade:
     PROPEDEUTIQUE = "Propedeutique"

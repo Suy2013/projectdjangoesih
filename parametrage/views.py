@@ -304,7 +304,7 @@ def controllercodecours(request):
             empty = False
             if str(request.POST['grade']).__eq__(''):
                 dic['error1'] = 'Field empty'
-                empty = True
+                empty = True   
             if str(request.POST['semestre']).__eq__(''):
                 dic['error2'] = 'Field empty'
                 empty = True

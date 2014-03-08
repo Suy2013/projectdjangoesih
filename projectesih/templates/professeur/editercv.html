@@ -43,9 +43,17 @@
             <p class="bar">___________________________________________________________________________</p>
             {% for experience in experiences %}
             <p class="bar">............................................................</p>
-            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{experience.de}} a {{experience.a}}</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{experience.de}} a
+               {% if experience.now %}
+                    nos jours
+                {% else %}
+                   {{experience.a}}
+                {% endif %}
+
+            </p>
 
             <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{experience.fonction}} <br/> {{experience.entreprise}} </p>
+                <a href="/delexperiences/{{ professor.id }}/{{ experience.id }}/">Delete</a>
             {% endfor %}
         </td>
     </tr>
@@ -63,6 +71,7 @@
             <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{formation.de}} a {{formation.de}}</p>
 
             <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{formation.diplome}}<br/>{{formation.etablissement}}<br/>{{formation.localite}}</p>
+                <a href="/delformations/{{ professor.id }}/{{ formation.id }}/">Delete</a>
             {% endfor %}
         </td>
     </tr>
@@ -84,7 +93,8 @@
             {% for competence in competencesorg %}
             <p class="bar">............................................................</p>
 
-            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.organisationel}}</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;width: 400px;">{{competence.organisationel}}</p>
+                <a href="/delcompetencesorg/{{ professor.id }}/{{ competence.id }}/">Delete</a>
             {% endfor %}
         </td>
     </tr>
@@ -96,7 +106,10 @@
             {% for competence in competencescom %}
             <p class="bar">............................................................</p>
 
-            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.communication}}</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;width: 400px;">{{competence.communication}}
+
+            </p>
+               <a href="/delcompetencescom/{{ professor.id }}/{{ competence.id }}/">Delete</a>
             {% endfor %}
         </td>
     </tr>
@@ -108,7 +121,8 @@
             {% for competence in competencesinfo %}
             <p class="bar">............................................................</p>
 
-            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.informatique}}</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;width: 400px;">{{competence.informatique}}</p>
+                <a href="/delcompetencesinfo/{{ professor.id }}/{{ competence.id }}/">Delete</a>
             {% endfor %}
         </td>
     </tr>

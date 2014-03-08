@@ -66,3 +66,4 @@ class Type:
     PROF = "Prof"
     ADMIN = "Admin"
     SUPER = "Super Admin"
+    
