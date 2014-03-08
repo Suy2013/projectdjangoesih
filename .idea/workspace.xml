@@ -38,7 +38,7 @@
       <file leaf-file-name="editercv.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="12" selection-start="6254" selection-end="6254" vertical-scroll-proportion="-5.230769" vertical-offset="2176" max-vertical-offset="6154">
+            <state line="194" column="13" selection-start="8552" selection-end="8552" vertical-scroll-proportion="-12.192307" vertical-offset="2981" max-vertical-offset="6154">
               <folding />
             </state>
           </provider>
@@ -47,7 +47,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/professeur/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="244" column="28" selection-start="9039" selection-end="9039" vertical-scroll-proportion="0.68435013" vertical-offset="3890" max-vertical-offset="7820">
+            <state line="401" column="0" selection-start="16059" selection-end="16059" vertical-scroll-proportion="0.9098143" vertical-offset="6474" max-vertical-offset="7922">
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -974,14 +974,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="12" selection-start="6254" selection-end="6254" vertical-scroll-proportion="-5.230769" vertical-offset="2176" max-vertical-offset="6154">
+        <state line="194" column="13" selection-start="8552" selection-end="8552" vertical-scroll-proportion="-12.192307" vertical-offset="2981" max-vertical-offset="6154">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/professeur/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="28" selection-start="9039" selection-end="9039" vertical-scroll-proportion="0.68435013" vertical-offset="3890" max-vertical-offset="7820">
+        <state line="401" column="0" selection-start="16059" selection-end="16059" vertical-scroll-proportion="0.9098143" vertical-offset="6474" max-vertical-offset="7922">
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>

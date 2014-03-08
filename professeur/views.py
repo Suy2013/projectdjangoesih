@@ -306,12 +306,18 @@ def editCV(request, id):
     if str(action).__eq__('formation'):
         de = None
         a = None
+        now = None
         diplome = None
         etablissement = None
         localite = None
         try:
             de = request.POST['de']
-            a = request.POST['a']
+            de = request.POST['de']
+            if 'a' in request.POST:
+                a = request.POST['a']
+            if 'now' in request.POST:
+                now = request.POST['now']
+
             diplome = request.POST['diplome']
             etablissement = request.POST['etablissement']
             localite = request.POST['localite']
