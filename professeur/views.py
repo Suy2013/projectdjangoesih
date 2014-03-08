@@ -233,6 +233,7 @@ def editCV(request, id):
         valid = True
         if nom != None and prenom != None and telephone != None and email != None and adresse != None:
             professor =manageProf.searchById(id)
+            m = professor.email
             professor.adresse = adresse
             professor.email = email
             professor.nom = nom
@@ -242,8 +243,9 @@ def editCV(request, id):
             if user.type.__eq__("Prof"):
                 dic['userprof']=manageProf.getProf(user)
             if manageProf.isexistmail(email):
-                dic['error6'] = 'Deja existe'
-                valid = False
+                if m != email:
+                    dic['error6'] = 'Deja existe'
+                    valid = False
             if valid:
                 professor.save()
                 message = "L'enregitrement de {} {} est effectue avec succes".format(nom, prenom)
