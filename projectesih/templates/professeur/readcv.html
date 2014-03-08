@@ -1,0 +1,140 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div>
+<br/>
+<div id="editercv">
+
+<table id="tbeditcv">
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="btninfgen">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Information personelle</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="name">{{professor.nom}} {{professor.prenom}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.adresse}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.telephone}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.email}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.identite}}</p>
+        </td>
+    </tr>
+    <tr id="btnexp">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Experience professionnelle</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar" style="color: #2a7ab9;">___________________________________________________________________________</p>
+            {% for experience in experiences %}
+            <p class="bar" style="color: #2a7ab9;">............................................................</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{experience.de}} a {{experience.a}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{experience.fonction}} <br/> {{experience.entreprise}} </p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btnforma">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Education et formation</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar" style="color: #2a7ab9;">___________________________________________________________________________</p>
+
+            {% for formation in formations %}
+            <p class="bar" style="color: #2a7ab9;">............................................................</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{formation.de}} a {{formation.de}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{formation.diplome}}<br/>{{formation.etablissement}}<br/>{{formation.localite}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr class="button">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Competences personnelles</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar" style="color: #2a7ab9;">___________________________________________________________________________</p>
+        </td>
+    </tr>
+    <tr id="btnorg">
+        <td class="tdleftpetit">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences organisationelles</p>
+        </td>
+        <td>
+            {% for competence in competencesorg %}
+            <p class="bar" style="color: #2a7ab9;">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.organisationel}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btncomm">
+        <td class="tdleftpetit">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences en communication</p>
+        </td>
+        <td>
+            {% for competence in competencescom %}
+            <p class="bar" style="color: #2a7ab9;">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.communication}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btninform">
+        <td class="tdleftpetit">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences informatique</p>
+        </td>
+        <td>
+            {% for competence in competencesinfo %}
+            <p class="bar" style="color: #2a7ab9;">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.informatique}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+    <script type="text/javascript">
+
+    function PrintElem(elem)
+    {
+        Popup($(elem).html());
+    }
+
+    function Popup(data)
+    {
+        var mywindow = window.open('', 'editercv');
+        mywindow.document.write('<html><head><title>Curriculum Vitae</title>');
+        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+
+</script>
+</div>
+{% endblock %}

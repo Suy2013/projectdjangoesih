@@ -1,0 +1,61 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform">
+    <h1>New user</h1><br/><br/>
+    <form method="POST" action="../controlleruser/">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+        <table>
+            <tr>
+                <td><label>User type :</label></td>
+                <td>
+                    <select required="" name="type">
+                        <option>{{type1}}</option>
+                        <option>{{type.PROF}}</option>
+                        <option>{{type.ADMIN}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Username :</label></td>
+                <td>
+                    <input type="text" name="username" required="" value="{{username}}"/>
+                </td>
+                <td><strong>{{error2}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Password :</label></td>
+                <td>
+                    <input type="password" name="password" required=""/>
+                </td>
+                <td><strong>{{error3}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Firstname :</label></td>
+                <td>
+                    <input type="text" name="firstname" required="" value="{{firstname}}"/>
+                </td>
+                <td><strong>{{error4}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Lastname :</label></td>
+                <td>
+                    <input type="text" name="lastname" required="" value="{{lastname}}"/>
+                </td>
+                <td><strong>{{error5}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Email :</label></td>
+                <td>
+                    <input type="email" name="email" required="" value="{{email}}"/>
+                </td>
+                <td><strong>{{error6}}</strong></td>
+            </tr>
+             <tr>
+                <td colspan="3" align="right"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

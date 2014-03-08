@@ -1,0 +1,38 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="list">
+    <h1>List</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+            <tr>
+                <td colspan="7">&nbsp;<a href="../form/">Creer</a></td>
+            </tr>
+            <tr>
+            <th>Code</th>
+            <th>Domaine</th>
+            <th>Mention</th>
+            <th>Specialite</th>
+            <th>Type cours</th>
+            <th>Langue</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for code in list %}
+            <tr>
+                <td>{{code.domaine}}-{{code.mention}}-{{code.specialite}}-{{code.typecours}}-{{code.langue}}</td>
+                <td>{{code.domaine}}</td>
+                <td>{{code.mention}}</td>
+                <td>{{code.specialite}}</td>
+                <td>{{code.typecours}}</td>
+                <td>{{code.langue}}</td>
+                <td><a href="/parametrage/codeprogram/change/{{code.id}}/">Modifier</a>
+                | <a href="/parametrage/codeprogram/delete/{{code.id}}/">Suprimer</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+{% endblock %}

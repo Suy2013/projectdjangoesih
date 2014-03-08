@@ -1,0 +1,22 @@
+{% extends "masterpage.html" %}
+{% block title %}ESIH Database cours{% endblock %}
+{% block content %}
+<div class="petitform">
+    <h1>Suppression code programme</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Voulez-vous vraiment suprimer ce {{codeprogram}}? <a href="/parametrage/codeprogram/list/">retour</a></td>
+            </tr>
+            <tr>
+                <td align="right"><form method="post" action="/parametrage/codeprogram/controllercodeprogram/">{% csrf_token %}
+                     <input type="hidden" value="{{action}}" name="action">
+                     <input type="hidden" value="{{id}}" name="id">
+                    <input type="submit" value="Oui"/>
+                </form></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+{% endblock %}

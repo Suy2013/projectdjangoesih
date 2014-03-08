@@ -1,0 +1,74 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="petitform">
+    <h1>Nouvelle institution</h1>
+    <form method="post" action="/parametrage/codeprogram/controllercodeprogram/">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+        <input type="hidden" value="{{id}}" name="id">
+        <table>
+            <tr>
+                <td><label>Domaine :</label></td>
+                <td>
+                    <select name="domaine" required="">
+                        <option>{{code.domaine}}</option>
+                        <option>{{domaine.ST}}</option>
+                        <option>{{domaine.EG}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+           <tr>
+                <td><label>Mention :</label></td>
+                <td>
+                    <select name="mention" required="">
+                        <option>{{code.mention}}</option>
+                        <option>{{mention.SI}}</option>
+                        <option>{{mention.EG}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+
+            <tr>
+                <td><label>Spécialité :</label></td>
+                <td>
+                    <select name="specialite" required="">
+                        <option>{{code.specialite}}</option>
+                        <option>{{specialite.TEL}}</option>
+                        <option>{{specialite.BDD}}</option>
+                        <option>{{specialite.ONE}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Type de cours :</label></td>
+                <td>
+                    <select name="typecours" required="">
+                        <option>{{code.typecours}}</option>
+                        <option value="O">Obligatoire</option>
+                        <option value="Op">Optionnel</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Langue :</label></td>
+                <td>
+                    <select name="langue" required="">
+                        <option>{{code.langue}}</option>
+                        <option value="A">Anglais</option>
+                        <option value="F">Francais</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+
+             <tr>
+                <td></td><td align="right"><input type="submit" value="Modifier code"></td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

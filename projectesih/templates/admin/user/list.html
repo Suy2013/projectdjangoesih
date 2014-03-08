@@ -1,0 +1,39 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="list">
+    <h1>Users</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+        <tr>
+            <th colspan="6" style="background: #fff;height:50px"><a href="../form/" style="margin-left:5px">Create</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <th>Firstname</th>
+            <th>Username</th>
+            <th>Type</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in list %}
+        <tr>
+            <td>{{user.lastname}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.type}}</td>
+            <td>{{user.active}}</td>
+            <td><a href="../change/{{user.id}}/">Change</a> <a
+                    href="../change/{{user.id}}/">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

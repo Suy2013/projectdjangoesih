@@ -1,0 +1,39 @@
+{% extends "masterpage.html" %}
+{% block title %}ESIH Database cours{% endblock %}
+{% block content %}
+<div class="list">
+    <h1>Institutions</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+        <tr>
+            <th colspan="7" style="background: #fff;height:50px"><a href="../form/" style="margin-left:5px">Create</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Programme</th>
+            <th>Etablissement</th>
+            <th>Grade</th>
+            <th>Semestre cours</th>
+            <th>Cours</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for code in list %}
+        <tr>
+            <td>{{code.codeprogram}}</td>
+            <td>{{code.etablissement}}</td>
+            <td>{{code.grade}}</td>
+            <td>{{code.semestre}}</td>
+            <td>{{code.nomcours}}</td>
+            <td><a href="../change/{{code.id}}/">Change</a> <a
+                    href="../delete/{{code.id}}/">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

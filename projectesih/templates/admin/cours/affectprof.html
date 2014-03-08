@@ -1,0 +1,24 @@
+{% extends "masterpage.html" %}
+{% block title %}ESIH Database cours{% endblock %}
+{% block content %}
+<div class="petitform">
+    <h1>Affecter un professeur à autre {{cours}}</h1>
+    <div>
+        <table>
+            <tr>
+                <td align="right"><form method="post" action="/admin/cours//affectation/{{cours.id}}/">{% csrf_token %}
+                     <input type="hidden" value="{{cours.id}}" name="idcours">
+                    <select name="idprof">
+                        <option></option>
+                        {% for prof in list %}
+                        <option value="{{prof.id}}">{{prof}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Ajouter"/>
+                </form></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+{% endblock %}

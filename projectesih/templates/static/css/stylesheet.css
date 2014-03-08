@@ -1,0 +1,439 @@
+{% load staticfiles %}
+*{
+   margin:0;
+   padding:0;
+}
+body{
+    background: #eeeeee;
+}
+#header-cont {
+    height:100px;
+    width:100%;
+    position:fixed;
+    top:0px;
+    z-index: 9999;
+}
+#header {
+    width:100%;
+    height:50px;
+    background:#708090;
+}
+#banner {
+    width:100%;
+    height:50px;
+    background:#708090;
+}
+#banner .left{
+    height:48px;
+    width:20%;
+    background:#22262e;
+    border-bottom: 3px solid #1b1e24;
+}
+#banner .left h1{
+    color:#fff;
+    padding:10px;
+}
+#banner .middle{
+    display:inline-block;
+    float:left;
+    height:40px;
+    width:800px;
+    margin-left:20%;
+    margin-top:-50px;
+
+}
+#banner .middle input[type=text]{
+    margin:5px;
+    width:250px;
+    height:25px;
+    border:1px solid #708090;
+}
+#banner .middle input[type=submit]{
+    margin:5px;
+    margin-left:-10px;
+    width:50px;
+    height:30px;
+    background:#1b1e24;
+    border:none;
+    color:#fff;
+}
+#banner .right{
+    height:48px;
+    width:300px;
+    float:right;
+    margin-top:-50px;
+}
+#banner .right .menu{
+    list-style: none;
+
+}
+#banner .right .menu li{
+    float: left;
+	position: relative;
+	padding:10px;
+	color: #919091;
+}
+#banner .right .menu li a{
+    text-decoration:none;
+    color: #fff;
+}
+* html #banner .right .menu li a:hover {
+    color: #fff;
+}
+#banner .right .menu li:hover>ul {
+	display: block;
+}
+/*Sous menu*/
+#banner .right .menu ul{
+
+    list-style: none;
+	margin: 0;
+	margin-top:-2px;
+	padding: 0;
+	display: none;
+	position: absolute;
+	left: 0;
+	z-index: 99999;
+}
+#banner .right .menu ul li {
+    width: 100%;
+    height:25px;
+	margin: 0;
+	float:none;
+	padding: 10px;
+	display: block;
+	background:#708090;
+}
+#banner .right .menu ul li a {
+    top: 20px;
+    width: 100%;
+}
+#banner .right .menu ul li:hover
+{
+	color: #fff;
+	background:#1b1e24;
+}
+
+.roundedImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:35px;
+    height:35px;
+}
+#left-panel {
+    background:#22262e;/*#1b1e24;*/
+    height:800px;
+    width:20%;
+    position:fixed;
+    top:50px;
+}
+#user_info{
+    margin-top:25px;
+    margin-left:25px;
+}
+#user_info p{
+    width:25%;
+    margin-top:-70px;
+    margin-left:80px;
+    font-size: 16px;
+    font-weight: 600;
+    color:#919091
+}
+#menu{
+    margin-top:0px;
+    decoration:none;
+    width:100%;
+}
+#menu li{
+    width:100%;
+    height:50px;
+    background:#1b1e24;
+}
+#menu a{
+    font: bold 13px 'trebuchet MS', arial, helvetica;
+	text-decoration: none;
+	color: #919091;
+	text-transform: uppercase;
+	padding-left:25px;
+	padding-top:25px;
+}
+#menu li:hover>a {
+	color: #fff;
+}
+#menu li:hover {
+	background:#22262e;
+}
+* html #menu li a:hover {
+    color: #fff;
+}
+#menu li:hover>ul {
+	display: block;
+}
+/*Sous-menu*/
+#menu ul{
+    width: 150px;
+    list-style: none;
+	margin: 0;
+	margin-left:100%;
+	margin-top:-19px;
+	padding: 0;
+	display: none;
+	position: absolute;
+	left: 0;
+	z-index: 99999;
+}
+#menu ul li {
+    width: 100%;
+    height:25px;
+	margin: 0;
+	float:none;
+	padding: 10px;
+	display: block;
+	background:#1b1e24;
+}
+
+
+/*fin*/
+#content{
+    margin-top:50px;
+    margin-left:20%;
+}
+.petitform{
+    margin-left:5%;
+    margin-top:100px;
+    padding-top:10%;
+    padding-left:10%;
+    padding-bottom:10%;
+    background:#fff;
+    width:70%;
+}
+.petitform h1{
+    color: #979770;
+}
+.petitform1{
+    margin-left:15%;
+    margin-top:100px;
+    padding-bottom:10%;
+    width:70%;
+}
+.petitform1 h1{
+    color: #979770;
+}
+.petitform1 input[type=submit]{
+    background:#1b1e24;
+    border:none;
+    color:#fff;
+    padding:15px;
+}
+.petitform1 strong{
+    color: red;
+}
+.petitform label{
+    color: #404040;
+}
+.petitform td{
+    padding:10px;
+}
+.petitform input[type=text]{
+  padding: 0 10px;
+  width: 280px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+}
+.petitform input[type=password]{
+  padding: 0 10px;
+  width: 280px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+}
+.petitform input[type=email]{
+  padding: 0 10px;
+  width: 280px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+}
+.petitform select{
+  padding: 0 10px;
+  width: 300px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+}
+.petitform input[type=submit]{
+    background:#1b1e24;
+    border:none;
+    color:#fff;
+    padding:15px;
+}
+.petitform strong{
+    color: red;
+}
+.list{
+    margin-left:5%;
+    margin-top:100px;
+    padding-bottom:10%;
+    background:#fff;
+    width:90%;
+}
+.list h1{
+    color: #919091;
+    background:#1b1e24;
+}
+.table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: auto;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	background: url('../images/table-images/blurry.jpg') 330px 59px no-repeat;
+}
+.table a{
+    /*background: #0aa699;*/
+    background: #1b1e24;
+    padding:10px;
+    color: #919091;
+    text-decoration:none;
+}
+.table td a:hover
+{
+	color: #1b1e24;
+	background: #fff;
+}
+.table th
+{
+	padding: 5px;
+	padding-left:0;
+	font-weight: normal;
+	font-size: 14px;
+	color: #919091;
+	background: #1b1e24;
+}
+.table td
+{
+	padding: 15px 5px;
+	color: #000;
+	border-bottom: 1px solid #1b1e24;
+
+}
+.table tfoot td
+{
+	font-size: 11px;
+}
+.table tbody td
+{
+	background: #fff;
+}
+* html .table tbody td
+{
+	background: none;
+}
+.table tbody tr:hover td
+{
+	color: #339;
+	background: #eeeeee;
+}
+
+#editercv{
+    margin-left:5%;
+    margin-top:50px;
+    padding:80px;
+    background:#fff;
+    width:70%;
+}
+#editercv h1{
+    color: #919091;
+}
+#tbeditcv{
+    width:100%;
+}
+#tbeditcv td{
+    padding-bottom:20px;
+}
+#tbeditcv tbody tr:hover td
+{
+	color: #339;
+	background: #eeeeee;
+	cursor: pointer;
+}
+#tbeditcv .tdleft{
+
+
+
+}
+#tbeditcv .tdleftpetit{
+
+}
+#tbeditcv .name{
+    font-family: Arial, Geneva, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right:5px;
+}
+#tbeditcv .bar{
+    color: #2a7ab9;
+}
+#dialog .ui-dialog { background-color: #fff; }
+.ui-dialog-content{
+    background:#919091 !important;
+}
+.menuprof{
+
+}
+.menuprof{
+    list-style: none;
+
+}
+.menuprof li{
+    float: left;
+	position: relative;
+	padding:10px;
+	color: #919091;
+}
+.menuprof li:hover>ul {
+	display: block;
+}
+/*Sous menu*/
+.menuprof ul{
+    width: 150px;
+    list-style: none;
+	margin: 0;
+	margin: 10px;
+	padding: 0;
+	display: none;
+	position: absolute;
+	left: 0;
+	z-index: 99999;
+}
+.menuprof ul li {
+    width: 100%;
+    height:25px;
+	margin: 0;
+	float:none;
+	padding: 10px;
+	display: block;
+	background:#1b1e24;
+}
+.menuprof ul li a {
+    top: 20px;
+    width: 100%;
+}
+.menuprof ul li:hover
+{
+	color: #1b1e24;
+	background: #fff;
+}

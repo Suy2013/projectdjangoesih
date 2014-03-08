@@ -1,0 +1,61 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="petitform">
+    <h1>Nouvelle institution</h1>
+    <form method="post" action="/parametrage/codecours/controllercodecours/">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+<table>
+            <tr>
+                <td><label>Etablissement :</label></td>
+                <td>
+                    <select name="etablissement" required="">
+                        <option>{{code.etablissement.nom}}</option>
+                        {% for etablissement in etablissements %}
+                        <option value="{{etablissement.id}}">{{etablissement.nom}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Grade :</label></td>
+                <td>
+                    <select name="grade" required="">
+                        <option>{{code.grade}}</option>
+                        <option value="PROB">{{grade.PROPEDEUTIQUE}}</option>
+                        <option>{{grade.LUN}}</option>
+                        <option>{{grade.LDEUX}}</option>
+                        <option>{{grade.LTROIS}}</option>
+                        <option>{{grade.MASTERUN}}</option>
+                        <option>{{grade.MASTERDEUX}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Semestre :</label></td>
+                <td>
+                    <select name="semestre" required="">
+                        <option>{{code.semestre}}</option>
+                        <option>{{semestre.SUN}}</option>
+                        <option>{{semestre.SDEUX}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Cours :</label></td>
+                <td>
+                    <input type="text" name="nomcours" value="{{code.nomcours}}"/>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+
+             <tr>
+                <td></td><td align="right"><input type="submit" value="Modifier code"></td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

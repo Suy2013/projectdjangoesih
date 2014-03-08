@@ -1,0 +1,84 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform">
+    <h1>Cours</h1><br/><br/>
+    <form method="POST" action="/admin/cours/form/">{% csrf_token %}
+        <input type="hidden" name="action" value="{{action}}">
+        <table>
+            <tr>
+                <td><label>Code cours :</label></td>
+                <td>
+                    <select name="codecours">
+                        <option></option>
+                        {% for code in codecours %}
+                            <option value="{{code.id}}">{{code.code}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                 <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Crédits ECTS :</label></td>
+                <td>
+                    <select name="ects">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </td>
+                 <td><strong>{{error2}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Professeur(s) :</label></td>
+                <td>
+                    <select name="prof">
+                        <option></option>
+                        {% for professor in professors %}
+                        <option value="{{professor.id}}">{{professor.nom}} {{professor.prenom}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                 <td><strong>{{error3}}</strong></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;"><label>Public cible :</label></td>
+                <td>
+                    <input type="checkbox" name="public_e" value="Etudiants"/>Etudiants &emsp;
+                    <input type="checkbox" name="public_p" value="Professionnels"/>Professionnels &emsp;<br/><br/>
+                    <input type="checkbox" name="public_a" value="Autre"/>Autre &emsp; <input type="text" name="public_autre" style="width: 205px;"/>
+                </td>
+                 <td style="vertical-align: top;"><strong>{{error4}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Pré requis :</label></td>
+                <td>
+                    <select name="prerequis">
+                        <option></option>
+                        <option>Etudiants</option>
+                        <option>Professionnels</option>
+                        <option>Autres</option>
+                    </select>
+                </td>
+                 <td style="vertical-align: top;"><strong>{{error5}}</strong></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;"><label>Format :</label></td>
+                <td>
+                    <input type="checkbox" name="magistrale"/>Présentation magistrale &emsp;
+                    <input type="checkbox" name="tp" value="TP"/>TP &emsp;
+                    <input type="checkbox" name="td" value="TD"/>TD &emsp;<br/><br/>
+                    <input type="checkbox" name="a" value="Autre"/>Autre &emsp; <input type="text" name="autre" style="width: 205px;"/>
+                </td>
+                 <td style="vertical-align: top;"><strong>{{error6}}</strong></td>
+            </tr>
+            <tr>
+                <td></td><td align="right"><input type="submit" value="Suivant"></td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

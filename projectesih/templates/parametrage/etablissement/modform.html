@@ -1,0 +1,22 @@
+{% extends "masterpage.html" %}
+{% block title %}ESIH Database cours{% endblock %}
+{% block content %}
+<div class="petitform">
+    <h1>Modification institution</h1>
+    <form method="post" action="/parametrage/etablissement/controlleretablissement/">{% csrf_token %}
+        <input type="hidden" value="{{id}}" name="id">
+        <input type="hidden" value="{{action}}" name="action">
+        <table>
+            <tr>
+                <td><label>Nom :</label></td><td><input type="text" name="nom" required="" value="{{nom}}"></td><td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Lieu :</label></td><td><input type="text" name="lieu" required=""   value="{{lieu}}"></td><td><strong>{{error2}}</strong></td>
+            </tr>
+             <tr>
+                <td></td><td align="right"><input type="submit"></td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

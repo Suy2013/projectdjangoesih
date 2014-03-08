@@ -1,0 +1,27 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform">
+    <h1>New user</h1><br/><br/>
+    <form method="POST" action="">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+        <table>
+            <tr>
+                <td><label>Username :</label></td>
+                <td>
+                    <input type="text" name="username" required="" value="{{username}}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Password :</label></td>
+                <td>
+                    <input type="password" name="password" required=""/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform">
+    <h1>Informations personnelles</h1><br/><br/>
+    <form method="POST" action="../controller/">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+        <table>
+            <tr>
+                <td><label>Nom :</label></td>
+                <td>
+                    <input type="text" name="nom" value="{{professor.nom}}"/>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Prenom :</label></td>
+                <td>
+                    <input type="text" name="prenom" value="{{professor.prenom}}"/>
+                </td>
+                <td><strong>{{error2}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Sexe :</label></td>
+                <td>
+                    <input type="radio" name="sexe" value="H"/>Homme<input type="radio" name="sexe" value="F"/>Femme
+                </td>
+                <td><strong>{{error3}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Identite :</label></td>
+                <td>
+                    <input type="text" name="identite" value="{{professor.identite}}" required=""/>
+                </td>
+                <td><strong>{{error4}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Telephone :</label></td>
+                <td>
+                    <input type="text" name="telephone" value="{{professor.telephone}}" required=""/>
+                </td>
+                <td><strong>{{error5}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Email :</label></td>
+                <td>
+                    <input type="email" name="email" value="{{professor.email}}" required=""/>
+                </td>
+                <td><strong>{{error6}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Adresse :</label></td>
+                <td>
+                    <input type="text" name="adresse" value="{{professor.adresse}}" required=""/>
+                </td>
+                <td><strong>{{error7}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Naissance :</label></td>
+                <td>
+                    <input type="date" name="naissance" value="{{professor.naissance}}" required=""/>
+                </td>
+                <td><strong>{{error8}}</strong></td>
+            </tr>
+             <tr>
+                <td colspan="3" align="right"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

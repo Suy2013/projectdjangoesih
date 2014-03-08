@@ -1,0 +1,343 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+
+<div id="editercv">
+<br/>
+<br/>
+<br/>
+<br/>
+<table id="tbeditcv">
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="btninfgen">
+        <td class="tdleft">
+             <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Information personelle</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="name">{{professor.nom}} {{professor.nom}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.adresse}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.telephone}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.email}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{professor.identite}}</p>
+        </td>
+    </tr>
+    <tr id="btnexp">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Experience professionnelle</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar">___________________________________________________________________________</p>
+            {% for experience in experiences %}
+            <p class="bar">............................................................</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{experience.de}} a {{experience.a}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{experience.fonction}} <br/> {{experience.entreprise}} </p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btnforma">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Education et formation</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar">___________________________________________________________________________</p>
+
+            {% for formation in formations %}
+            <p class="bar">............................................................</p>
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px;color: #2a7ab9;">De {{formation.de}} a {{formation.de}}</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{formation.diplome}}<br/>{{formation.etablissement}}<br/>{{formation.localite}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr class="button">
+        <td class="tdleft">
+            <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 18px;width:200px;padding-right:20px;vertical-align: top;">Competences personnelles</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+
+            <p class="bar">___________________________________________________________________________</p>
+        </td>
+    </tr>
+    <tr id="btnorg">
+        <td class="tdleftpetit">
+             <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences organisationelles</p>
+        </td>
+        <td>
+            {% for competence in competencesorg %}
+            <p class="bar">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.organisationel}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btncomm">
+        <td class="tdleftpetit">
+           <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences en communication</p>
+        </td>
+        <td>
+            {% for competence in competencescom %}
+            <p class="bar">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.communication}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr id="btninform">
+        <td class="tdleftpetit">
+           <p style="color: #2a7ab9;font-family: Arial, Geneva, Helvetica, sans-serif;font-weight: 400;font-size: 14px;width:200px;padding-right:18px;vertical-align: top;">Competences informatique</p>
+        </td>
+        <td>
+            {% for competence in competencesinfo %}
+            <p class="bar">............................................................</p>
+
+            <p style="font-family: Arial, Geneva, Helvetica, sans-serif;font-size: 12px">{{competence.informatique}}</p>
+            {% endfor %}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="dialoging" title="Informations personelles">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="infoperso" />
+        <input type="hidden" name="id" value="{{professor.id}}"/>
+        <p style="padding:30px">
+            <input type="text" name="nom" value="{{professor.nom}}" placeholder="Nom" required=""/>
+        </p>
+        <p style="padding:30px">
+            <input type="text" name="prenom" value="{{professor.prenom}}" placeholder="Prénom" required=""/>
+        </p>
+        <p style="padding:30px">
+            <input type="text" name="adresse" value="{{professor.adresse}}" required="" placeholder="Adresse"/>
+        </p>
+        <p style="padding:30px">
+            <input type="text" name="telephone" value="{{professor.telephone}}" placeholder="Téléphone" required=""/>
+        </p>
+        <p style="padding:30px">
+            <input type="text" name="email" value="{{professor.email}}" placeholder="Email" required=""/>
+        </p>
+        <p style="padding:30px">
+            <input type="submit"/>
+        </p>
+    </form>
+
+</div>
+<div id="dialogexp" title="Experience professionnelle">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="exper" />
+        <input type="hidden" name="id" value="{{professor.id}}" />
+        <p style="padding:30px;padding-bottom:10px">
+           De
+        </p>
+        <p style="padding:30px;padding-bottom:10px;padding-top:10px">
+            <input type="date" name="de" required/>
+        </p>
+        <p style="padding:30px;;padding-bottom:10px;padding-top:10px">
+            A
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="date" name="a" required/>&emsp; <input type="checkbox" name="now" value="A nos jours"/>A nos jours
+        </p>
+        <p style="padding:30px;padding-bottom:0px">
+            Fonction ou poste occupé
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="text" name="fonction" style="width:500px" />
+        </p>
+        <p style="padding:30px;padding-bottom:0px">
+            Entreprise
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="text" name="entreprise" style="width:500px" />
+        </p>
+        <p style="padding:30px">
+            <input type="submit"/>
+        </p>
+    </form>
+
+</div>
+<div id="dialogformation" title="Education et formation">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="formation" />
+        <input type="hidden" name="id" value="{{professor.id}}" />
+        <p style="padding:30px;padding-bottom:10px">
+           De
+        </p>
+        <p style="padding:30px;padding-bottom:10px;padding-top:10px">
+            <input type="date" name="de" required/>
+        </p>
+        <p style="padding:30px;;padding-bottom:10px;padding-top:10px">
+            A
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="date" name="a" required/>&emsp; <input type="checkbox" name="now" value="A nos jours"/>A nos jours
+        </p>
+        <p style="padding:30px;padding-bottom:0px">
+            Diplome
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="text" name="diplome" style="width:500px" />
+        </p>
+        <p style="padding:30px;padding-bottom:0px">
+            Etablissement
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="text" name="etablissement" style="width:500px" />
+        </p>
+        <p style="padding:30px;padding-bottom:0px">
+            Localité
+        </p>
+        <p style="padding:30px;padding-top:10px">
+            <input type="text" name="localite" style="width:500px" />
+        </p>
+        <p style="padding:30px;padding-top:0px">
+            <input type="submit"/>
+        </p>
+    </form>
+
+</div>
+<div id="dialogorg" title="Compétences organisationnelles">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="org" />
+        <input type="hidden" name="id" value="{{professor.id}}" />
+        <p style="padding:30px">
+            <textarea name="organisationel" style="width:500px;height:300px">
+
+            </textarea>
+        </p>
+        <p style="padding:30px;padding-top:0px;">
+            <input type="submit"/>
+        </p>
+    </form>
+
+</div>
+<div id="dialogcom" title="Compétences en communication">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="commu" />
+        <input type="hidden" name="id" value="{{professor.id}}" />
+        <p style="padding:30px">
+            <textarea name="communication" style="width:500px;height:300px">
+
+            </textarea>
+        </p>
+        <p style="padding:30px;padding-top:0px;">
+            <input type="submit"/>
+        </p>
+    </form>
+</div>
+<div id="dialoginfor" title="Compétences informatiques">
+    <form method="post" action="">
+        <input type="hidden" name="action" value="informatique" />
+        <input type="hidden" name="id" value="{{professor.id}}" />
+        <p style="padding:30px">
+            <textarea name="informatique" style="width:500px;height:300px">
+
+            </textarea>
+        </p>
+        <p style="padding:30px;padding-top:0px;">
+            <input type="submit"/>
+        </p>
+    </form>
+</div>
+<script type="text/javascript">
+
+		$(function() {
+		$("#dialoging").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btninfgen").on("click", function() {
+				$("#dialoging").dialog("open");
+			});
+
+
+			$("#dialogexp").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btnexp").on("click", function() {
+				$("#dialogexp").dialog("open");
+			});
+
+
+
+
+            $("#dialogformation").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btnforma").on("click", function() {
+				$("#dialogformation").dialog("open");
+			});
+
+
+
+            $("#dialogorg").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btnorg").on("click", function() {
+				$("#dialogorg").dialog("open");
+			});
+
+
+
+            $("#dialogcom").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btncomm").on("click", function() {
+				$("#dialogcom").dialog("open");
+			});
+
+
+
+			$("#dialoginfor").dialog({
+				autoOpen: false,
+				width: 600,
+                height:400,
+				resizable: false,
+				modal: true
+			});
+			$("#btninform").on("click", function() {
+				$("#dialoginfor").dialog("open");
+			});
+		});
+
+
+</script>
+</div>
+</div>
+{% endblock %}

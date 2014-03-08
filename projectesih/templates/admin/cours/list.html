@@ -1,0 +1,53 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<div class="list">
+    <h1>Users</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+        <tr>
+            <th colspan="6" style="background: #fff;height:50px"><a href="form/" style="margin-left:5px">Create</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Code cours</th>
+            <th>Crédits ECTS</th>
+            <th>Format</th>
+            <!--<th>Pré requis</th>-->
+            <th>Public cible</th>
+            <th>Professeurs</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for cours in list %}
+            <tr>
+                <td>{{cours.codecours.code}}</td>
+                <td>{{cours.ects}}</td>
+                <td>{{cours.format}}</td>
+                <!--<td>cours.</td>-->
+                <td>{{cours.public}}</td>
+                <td>
+                    <ul class="menuprof">
+                        <li>Voir
+                            <ul>
+                                <li style="width: 100%;"><a href="/admin/cours/affectation/{{cours.id}}/">Ajouter</a></li>
+                                {% for professeur in cours.prof.all %}
+                                <li style="width: 100%;"><a href="/viewcv/{{professeur.id}}/"> {{professeur.nom}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    </ul>
+                </td>
+                <td><a href="/admin/cours/details/{{cours.id}}/">Voir détails cours</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

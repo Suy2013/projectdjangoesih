@@ -1,0 +1,89 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform">
+    <h1>Nouvelle institution</h1><br/><br/>
+    <form method="post" action="../controllercodecours/">{% csrf_token %}
+        <input type="hidden" value="{{action}}" name="action">
+        <table>
+            <tr>
+                <td><label>Code programme :</label></td>
+                <td>
+                    <select name="program" onchange="loadcoursmaster();">
+                        <option></option>
+                        {% for program in listprogram %}
+                            <option value="{{program.id}}" >{{program}}</option>
+                        {% endfor %}
+                        <script type="text/javascript">
+                        function loadcoursmaster(specialite){
+                            var program=document.getElementsByName("program")[0];
+                            alert(program);
+                                if (specialite=="BDD"){
+                                    var cours=["Python","Asp.net","Java Network","SIG","IT Project","Methodologie","Oracle I","Datawarehouse I"]
+                                    var select=document.getElementsByName("nomcours")[0];
+                                    for(var i=0;i<cours.length-1;i++){
+                                        select.add(new Option(cours[i],i),length);
+                                    }
+                                }
+                        }
+                    </script>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Etablissement :</label></td>
+                <td>
+                    <select name="etablissement" >
+                        <option></option>
+                        {% for etablissment in etablissements %}
+                        <option value="{{etablissment.id}}">{{etablissment.nom}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Grade :</label></td>
+                <td>
+                    <select name="grade" required="">
+                        <option></option>
+                        <option value="PROB">{{grade.PROPEDEUTIQUE}}</option>
+                        <option>{{grade.LUN}}</option>
+                        <option>{{grade.LDEUX}}</option>
+                        <option>{{grade.LTROIS}}</option>
+                        <option>{{grade.MASTERUN}}</option>
+                        <option>{{grade.MASTERDEUX}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Semestre :</label></td>
+                <td>
+                    <select name="semestre" required="">
+                        <option></option>
+                        <option>{{semestre.SUN}}</option>
+                        <option>{{semestre.SDEUX}}</option>
+                    </select>
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+            <tr>
+                <td><label>Cours :</label></td>
+                <td>
+                    <select name="nomcours" required="">
+
+                    </select>
+
+                </td>
+                <td><strong>{{error1}}</strong></td>
+            </tr>
+
+             <tr>
+                <td></td><td align="right"><input type="submit" value="Créer code"></td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

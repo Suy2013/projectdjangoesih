@@ -1,0 +1,43 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div id="form" class="petitform1">
+    <h1>Description cours {{titrecours}}</h1><br/><br/>
+    <form method="POST" action="http://{{request.get_host}}{{ request.get_full_path }}">{% csrf_token %}
+        <input type="hidden" name="action" value="{{action}}"/>
+        <table>
+            <tr><td><strong>{{error1}}</strong></td></tr>
+            <tr>
+                <td>
+                    <textarea id="description" name="description"></textarea>
+                    <script type="text/javascript">
+	                    CKEDITOR.replace('description',{
+	                        height: 380,
+	                        toolbarGroups: [
+	                                            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+	                                            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
+	                                            { name: 'forms' },
+	                                             '/',
+	                                            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+	                                            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+	                                            { name: 'links' },
+	                                            { name: 'insert' },
+	                                             '/',
+	                                            { name: 'styles' },
+	                                            { name: 'colors' },
+	                                            { name: 'tools' },
+	                                            { name: 'others' },
+	                                            { name: 'about' }
+	                                       ]
+
+                        });
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><input type="submit" value="Suivant"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

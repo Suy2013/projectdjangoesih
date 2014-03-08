@@ -1,0 +1,37 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="list">
+    <h1>Users</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+        <tr>
+            <th colspan="6" style="background: #fff;height:50px"><a href="../form/" style="margin-left:5px">Create</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for professeur in list %}
+        <tr>
+            <td>{{professeur.nom}}</td>
+            <td>{{professeur.prenom}}</td>
+            <td>{{professeur.telephone}}</td>
+            <td>{{professeur.email}}</td>
+            <td><a href="/editcv/{{professeur.id}}/">Modifier CV</a> <a href="/viewcv/{{professeur.id}}/">Voir CV</a> <a href="../change/{{professeur.id}}/">Change</a> <a
+                    href="../change/{{professeur.id}}/">Suprimer</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+{% endblock %}
