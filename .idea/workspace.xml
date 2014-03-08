@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52d0e99a-c29d-426c-8f34-f343a8430cf5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/professeur/views.py" afterPath="$PROJECT_DIR$/professeur/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projectesih.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +46,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/professeur/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="401" column="0" selection-start="16059" selection-end="16059" vertical-scroll-proportion="0.9098143" vertical-offset="6474" max-vertical-offset="7922">
+            <state line="252" column="64" selection-start="9449" selection-end="9449" vertical-scroll-proportion="0.32360741" vertical-offset="4162" max-vertical-offset="7922">
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -55,10 +54,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="repform.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/repform.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="21" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="890" column="16" selection-start="37058" selection-end="37058" vertical-scroll-proportion="0.0" vertical-offset="14943" max-vertical-offset="16575">
+            <state line="864" column="69" selection-start="36237" selection-end="36237" vertical-scroll-proportion="0.0" vertical-offset="14671" max-vertical-offset="16575">
               <folding>
                 <element signature="e#46#81#0" expanded="true" />
               </folding>
@@ -84,28 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modform.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codecours/modform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="56" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1139">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="form.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="-0.0" vertical-offset="119" max-vertical-offset="1156">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="29" selection-start="2729" selection-end="2729" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1513">
               <folding />
             </state>
           </provider>
@@ -759,20 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/readcv.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/repform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/static/css/examples-offline.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7140" />
@@ -935,15 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="890" column="16" selection-start="37058" selection-end="37058" vertical-scroll-proportion="0.0" vertical-offset="14943" max-vertical-offset="16575">
-          <folding>
-            <element signature="e#46#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/attack.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="12" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1428">
@@ -972,6 +939,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/readcv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="17" selection-start="2991" selection-end="2991" vertical-scroll-proportion="-12.692307" vertical-offset="741" max-vertical-offset="2414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/repform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="21" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="194" column="13" selection-start="8552" selection-end="8552" vertical-scroll-proportion="-12.192307" vertical-offset="2981" max-vertical-offset="6154">
@@ -979,9 +960,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="864" column="69" selection-start="36237" selection-end="36237" vertical-scroll-proportion="0.0" vertical-offset="14671" max-vertical-offset="16575">
+          <folding>
+            <element signature="e#46#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/professeur/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="401" column="0" selection-start="16059" selection-end="16059" vertical-scroll-proportion="0.9098143" vertical-offset="6474" max-vertical-offset="7922">
+        <state line="252" column="64" selection-start="9449" selection-end="9449" vertical-scroll-proportion="0.32360741" vertical-offset="4162" max-vertical-offset="7922">
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>

@@ -250,7 +250,7 @@ def editCV(request, id):
                 professor.save()
                 message = "L'enregitrement de {} {} est effectue avec succes".format(nom, prenom)
                 t = get_template('professeur/repform.html')
-                dic={'login':True,'message': message}
+                dic={'login':True,'message': message,'user':user}
                 if user.type.__eq__("Prof"):
                     dic['userprof']=manageProf.getProf(user)
                 html = t.render(Context(dic))
