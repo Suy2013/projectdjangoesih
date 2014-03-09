@@ -1,76 +1,78 @@
 {% extends "masterpage.html" %}
 {% block title %}Accueil{% endblock %}
 {% block content %}
-<div id="form" class="petitform" style="width:80%;background:#fff">
-    <form name="formdash" method="post" action="/admin/">
-        <select onchange="document.getElementsByName('formdash')[0].submit()" name="choixdash">
-            <option not selected>-------</option>
-            <option value="v">
-                Volume horaire
-            </option>
-            <option value="e">
-                Crédits ECTS
-            </option>
-        </select>
-    </form>
-    <div id="chart_div" style="width: 700px; height: 500px;background:#fff"></div>
-</div>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-      google.load('visualization', '1', {packages: ['corechart']});
+    <div id="form" class="petitform" style="width:80%;background:#fff">
+        <form name="formdash" method="post" action="/admin/">
+            <select onchange="document.getElementsByName('formdash')[0].submit()" name="choixdash">
+                <option not selected>-------</option>
+                <option value="v">
+                    Volume horaire
+                </option>
+                <option value="e">
+                    Crédits ECTS
+                </option>
 
-</script>
-<script type="text/javascript">
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-	        ['', '', { role: 'style' }],
-	        {% for  annee,volumeH,color in dash %}
-	            ['{{annee}}', {{volumeH}}, '{{color}}'],
-	        {% endfor %}
-	                    // RGB value
-            //['DUT2', 130, '#83A697'],            // RGB value
-	        //['L1', 133, 'silver'],            // English color name
-	        //['L2', 121, 'gold'],
-	        //['L3', 115, '#6600FF' ], // CSS-style declaration
-        ]);
+            </select>
+        </form>
+        <div id="chart_div" style="width: 700px; height: 500px;background:#fff"></div>
+    </div>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1', {packages: ['corechart']});
 
-        var options = {
-          animation:{
-          duration: 3000,
-          easing: 'out',
-        },
-          backgroundColor: '#fff',
-          titleColor: 'red',
-          title : 'Statistique {{titledash}}',
-          vAxis: {title: "{{titledash}}",minValue:0, maxValue:{{max}}},
-          hAxis: {title: "Annee"},
-          seriesType: "bars",
-          series: {5: {type: "line"},color: 'red'}
-        };
+    </script>
+    <script type="text/javascript">
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable([
+                ['', '', { role: 'style' }],
+                {% for  annee,volumeH,color in dash %}
+                    ['{{annee}}', {{volumeH}}, '{{color}}'],
+                {% endfor %}
+                // RGB value
+                //['DUT2', 130, '#83A697'],            // RGB value
+                //['L1', 133, 'silver'],            // English color name
+                //['L2', 121, 'gold'],
+                //['L3', 115, '#6600FF' ], // CSS-style declaration
+            ]);
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-      google.setOnLoadCallback(drawVisualization);
+            var options = {
+                animation: {
+                    duration: 3000,
+                    easing: 'out',
+                },
+                backgroundColor: '#fff',
+                titleColor: 'red',
+                title: 'Statistique {{titledash}}',
+                vAxis: {title: "{{titledash}}", minValue: 0, maxValue:{{max}}},
+                hAxis: {title: "Annee"},
+                seriesType: "bars",
+                series: {5: {type: "line"}, color: 'red'}
+            };
 
-</script>
-<div class="list" style="width:90%;margin-top:0">
-    <table class="table" summary="Meeting Results">
-        <thead>
-        <tr>
-            <th>Année</th>
-            <th>{{titledash}} annuel</th>
-        </tr>
-        </thead>
-        <tbody>
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        google.setOnLoadCallback(drawVisualization);
+
+    </script>
+    <div class="list" style="width:90%;margin-top:0">
+        <table class="table" summary="Meeting Results">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>{{ titledash }} annuel</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for  annee,volumeH in dash %}
                 <tr>
-                    <td>{{annee}}</td><td>{{volumeH}}</td>
+                    <td>{{ annee }}</td>
+                    <td>{{ volumeH }}</td>
                 </tr>
             {% endfor %}
-        </tbody>
+            </tbody>
 
-    </table>
-</div>
+        </table>
+    </div>
 {% endblock %}

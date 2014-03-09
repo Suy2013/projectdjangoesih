@@ -23,7 +23,7 @@ def formprof(request):
     if user.type.__eq__("Prof"):
         dic['userprof']=manageProf.getProf(user)
     t = get_template('professeur/formprof.html')
-    html = t.render(Context())
+    html = t.render(Context(dic))
     return HttpResponse(html)
 
 

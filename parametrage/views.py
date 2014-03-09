@@ -211,7 +211,10 @@ def formcodecours(request):
     semestre = Semestre()
     list = manageCodeCours.loadEtablissement()
     listprogram = manageCodeProgram.listall()
-    dic = {'login':True,'grade': grade, 'semestre': semestre, 'etablissements': list, 'listprogram': listprogram,
+    mention = Mention()
+    grade = Grade()
+    specialite = Specialite()
+    dic = {'login':True,'grade': grade, 'semestre': semestre,'mention': mention, 'specialite': specialite, 'etablissements': list, 'listprogram': listprogram,
            'action': Action.CREER, 'user': user}
     html = t.render(Context(dic))
     return HttpResponse(html)

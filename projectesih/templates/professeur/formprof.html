@@ -4,8 +4,21 @@
 <div id="form" class="petitform">
     <h1>Informations personnelles</h1><br/><br/>
     <form method="POST" action="../controller/">{% csrf_token %}
+
         <input type="hidden" value="{{action}}" name="action">
         <table>
+            <tr><td colspan="3">
+                Affecter un compte à ce prof s'il est crée sinon il va creer automatiqument.
+            </td></tr>
+            <tr>
+                <td><label>Compte</label></td>
+                <td>
+                    <input type="text" name="nom" value="{{professor.nom}}"/>
+                    <br/>
+
+                </td>
+                <td><strong></strong></td>
+            </tr>
             <tr>
                 <td><label>Nom :</label></td>
                 <td>

@@ -4,3 +4,5 @@ class Specialite:
     BDD = "BDD"
     ONE = "ONE"
     NOSP = "NOSP"
+    SC   = "SC"
+    SDE = "SDE"
