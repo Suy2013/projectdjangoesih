@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from projectesih.util.fonctionalite import Action
 from projectesih.databasemanager import ManageProfesseur,ManageUser
 from professeur.models import Professor, Experience, Formation, CompetenceOrg, CompetenceCom, CompetenceInfo
+
 # Create your views here.
 manageProf = ManageProfesseur()
 manageUser = ManageUser()
@@ -59,7 +60,8 @@ def modprof(request, id):
     dic = {'login':True,'user':user}
     if user.type.__eq__("Prof"):
         dic['userprof']=manageProf.getProf(user)
-    t = get_template('professeur/list.html')
+    dic['professor']=professor
+    t = get_template('professeur/mod.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
 
@@ -97,11 +99,22 @@ def controllerprof(request):
                     if manageProf.isexistmail(email):
                         dic['error6'] = 'Deja existe'
                         valid = False
+                    userP=False
+                    if 'userprof' in request.POST['userprof']:
+                        if not manageUser.iscreateuser(request.POST['userprof']):
+                            valid = False
+                            dic['error7'] = 'User incorrect'
+                    else:
+                        userP=True
+
+
                     if valid:
-                        professor.save()
+                        ide=professor.save()
+                        manageUser.createUserProf( request.POST['userprof'],Professor.objects.get(id=ide))
+
                         message = "L'enregitrement de {} {} est effectue avec succes".format(nom, prenom)
                         t = get_template('professeur/repform.html')
-                        dic={'message': message,'user':user}
+                        dic={'login':True,'message': message,'user':user}
                         if user.type.__eq__("Prof"):
                             dic['userprof']=manageProf.getProf(user)
                         html = t.render(Context(dic))

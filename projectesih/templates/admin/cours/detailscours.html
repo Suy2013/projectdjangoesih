@@ -2,7 +2,7 @@
 {% block title %}List{% endblock %}
 {% block content %}
 <div>
-<button style="margin-left:5%;margin-top:20px;padding:5px">Print</button> <button style="margin-top:20px;padding:5px">Télécharger le pdf</button><br/>
+<button style="margin-left:5%;margin-top:20px;padding:5px">Print ou Télécharger le pdf</button><br/>
 <div id="editercv">
     <h1>Objectifs du cours</h1>
     <p style="padding-left: 100px;">
@@ -25,5 +25,28 @@
         {{cours.evaluation | safe}}
     </p><br/>
 </div>
+<script type="text/javascript">
+
+    function PrintElem(elem)
+    {
+        Popup($(elem).html());
+    }
+
+    function Popup(data)
+    {
+        var mywindow = window.open('', 'editercv');
+        mywindow.document.write('<html><head><title>Curriculum Vitae</title>');
+        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+
+</script>
 </div>
 {% endblock %}

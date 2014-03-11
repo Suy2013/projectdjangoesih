@@ -66,13 +66,13 @@ TEMPLATE_DIRS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'NAME': 'projectesih',
-        # 'HOST': '192.168.1.124',
-        # 'PORT': 5432,
-        # 'USER': 'admin',
-        # 'PASSWORD': 'password'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'projectesih',
+        'HOST': 'localhost',
+        'PORT': 5432,
+        'USER': 'admin',
+        'PASSWORD': 'password'
     }
 }
 
@@ -115,3 +115,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     "projectesih/templates/static",
 )
+
+
+# email configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'emmanuel.suy@esih.edu'
+EMAIL_HOST_PASSWORD = 'ES2013*S'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

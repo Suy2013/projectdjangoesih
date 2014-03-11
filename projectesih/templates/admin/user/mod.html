@@ -9,7 +9,7 @@
             <tr>
                 <td><label>Id :</label></td>
                 <td>
-                    <input type="text" readonly="readonly" value="{{user.id}}">
+                    <input type="text" readonly="readonly" value="{{user1.id}}">
                 </td>
                 <td><strong>{{error1}}</strong></td>
             </tr>
@@ -17,7 +17,7 @@
                 <td><label>User type :</label></td>
                 <td>
                     <select required="" name="type">
-                        <option>user.type</option>
+                        <option>{{ user1.type }}</option>
                         <option>{{type.PROF}}</option>
                         <option>{{type.ADMIN}}</option>
                     </select>
@@ -27,7 +27,7 @@
             <tr>
                 <td><label>Username :</label></td>
                 <td>
-                    <input type="text" name="username" required="" value="{{user.username}}"/>
+                    <input type="text" name="username" required="" value="{{user1.username}}"/>
                 </td>
                 <td><strong>{{error2}}</strong></td>
             </tr>
@@ -41,21 +41,21 @@
             <tr>
                 <td><label>Firstname :</label></td>
                 <td>
-                    <input type="text" name="firstname" required="" value="{{user.firstname}}"/>
+                    <input type="text" name="firstname" required="" value="{{user1.firstname}}"/>
                 </td>
                 <td><strong>{{error4}}</strong></td>
             </tr>
             <tr>
                 <td><label>Lastname :</label></td>
                 <td>
-                    <input type="text" name="lastname" required="" value="{{user.lastname}}"/>
+                    <input type="text" name="lastname" required="" value="{{user1.lastname}}"/>
                 </td>
                 <td><strong>{{error5}}</strong></td>
             </tr>
             <tr>
                 <td><label>Email :</label></td>
                 <td>
-                    <input type="email" name="email" required="" value="{{user.email}}"/>
+                    <input type="email" name="email" required="" value="{{user1.email}}"/>
                 </td>
                 <td><strong>{{error6}}</strong></td>
             </tr>

@@ -5,6 +5,7 @@
 <head>
     <title>{% block title %}Parametrage{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/filecss.css' %}">
     <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css"
           rel="stylesheet">
     <link href="{% static 'css/examples-offline.css' %}" rel="stylesheet">
@@ -42,7 +43,6 @@
         function Popup(data) {
             var mywindow = window.open('', 'my div', 'height=400,width=600');
             mywindow.document.write('<html><head><title>my div</title>');
-            /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
             mywindow.document.write('</head><body >');
             mywindow.document.write(data);
             mywindow.document.write('</body></html>');
@@ -122,9 +122,10 @@
                 {% endifequal %}
                 {{ user.firstname }} {{ user.lastname }}</p>
         </div>
+        <br/>
         <ul id="menu">
             {% ifequal user.type "Admin" %}
-                <li><a href="/admin/">Accuei</a></li>
+                <li><a href="/admin/">Accueil</a></li>
                 <li><a href="/admin/user/list/">Utilisateur</a></li>
                 <li><a href="#">Parametrage</a>
                     <ul>
@@ -140,13 +141,32 @@
                     </ul>
                 </li>
                 <li><a href="/admin/professeurs/">Professeurs</a></li>
+                <li><a href="/admin/cours/">Décrire un cours</a></li>
+            {% endifequal %}
+        {% ifequal user.type "Super Admin" %}
+                <li><a href="/admin/">Accueil</a></li>
+                <li><a href="/admin/user/list/">Utilisateur</a></li>
+                <li><a href="#">Parametrage</a>
+                    <ul>
+                        <li>
+                            <a href="/parametrage/etablissement/list/">Etablissement</a>
+                        </li>
+                        <li>
+                            <a href="/parametrage/codeprogram/list/">Program</a>
+                        </li>
+                        <li>
+                            <a href="/parametrage/codecours/list/">Cours</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/admin/professeurs/">Professeurs</a></li>
+                <li><a href="/admin/cours/">Décrire un cours</a></li>
             {% endifequal %}
             {% ifequal user.type "Prof" %}
                 <li><a href="/prof/">Accueil</a></li>
                 <li><a href="/prof/cours/{{ userprof.id }}/">Cours</a></li>
                 <li><a href="/editcv/{{ userprof.id }}/">Modifier Cv</a></li>
                 <li><a href="/viewcv/{{ userprof.id }}/">Voir CV</a></li>
-                <li><a href="">Item 4</a></li>
             {% endifequal %}
 
         </ul>

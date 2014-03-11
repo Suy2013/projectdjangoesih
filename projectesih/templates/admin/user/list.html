@@ -19,15 +19,22 @@
         </tr>
         </thead>
         <tbody>
-        {% for user in list %}
+        {% for u in list %}
         <tr>
-            <td>{{user.lastname}}</td>
-            <td>{{user.firstname}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.type}}</td>
-            <td>{{user.active}}</td>
-            <td><a href="../change/{{user.id}}/">Change</a> <a
-                    href="../change/{{user.id}}/">Delete</a></td>
+            {% ifnotequal user.username u.username %}
+            <td>{{u.lastname}}</td>
+            <td>{{u.firstname}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.type}}</td>
+            <td>{{u.active}}</td>
+            {% ifequal user.type "Super Admin" %}
+
+                    <td><a href="/admin/user/change/{{u.id}}/">Change</a> <a
+                    href="/admin/user/delete/{{u.id}}/">Delete</a></td>
+
+
+            {% endifequal %}
+        {% endifnotequal %}
         </tr>
         {% endfor %}
         </tbody>

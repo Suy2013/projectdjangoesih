@@ -11,6 +11,7 @@ from django.db import IntegrityError
 from django.shortcuts import redirect
 from parametrage.models import CodeCours
 from professeur.models import Professor
+from django.core.mail import EmailMultiAlternatives
 # Create your views here.
 
 manage = ManageUser()
@@ -34,7 +35,7 @@ def home(request):
     if session != None:
         user = manage.searchById(request.session['userid'])
         dic = {'login':True,'type': Type(), 'action': Action.CREER, 'user': user}
-        if not user.type.__eq__(Type.ADMIN):
+        if user.type.__eq__(Type.PROF):
             profe=UserProf.objects.get(user_id=user.id).professeur
             dic['userprof']=profe
             return redirect("/prof/{}/".format(profe.id))
@@ -201,7 +202,7 @@ def home(request):
             request.session['userid'] = id
             user = manage.searchById(request.session['userid'])
             dic = {'login':True,'type':Type(),'action':Action.CREER, 'user':user}
-            if not user.type.__eq__(Type.ADMIN):
+            if user.type.__eq__(Type.PROF):
                 profe=UserProf.objects.get(user_id=user.id).professeur
                 dic['userprof']=profe
                 return redirect("/prof/{}/".format(profe.id))
@@ -233,7 +234,27 @@ def userform(request):
     t = get_template('admin/user/form.html')
     html = t.render(Context({'login':True,'type':Type(),'action':Action.CREER,'user':user}))
     return HttpResponse(html)
-
+def deluser(request,id):
+    session = None
+    try:
+        session = request.session['userid']
+    except KeyError:
+        pass
+    if session == None:
+        return redirect("/admin/")
+    user = manage.searchById(request.session['userid'])
+    try:
+        user2 = manage.searchById(id)
+    except:
+         message = "Une erreur c'est produite!  Le système n'arrive pas à trouver le code demandé."
+         dic = {'login':True,'code': '', 'user': user,'message':message,'title':'Avertissement!!!','color':'red'}
+         t = get_template('admin/user/repdel.html')
+         html = t.render(Context(dic))
+         return HttpResponse(html)
+    dic = {'login':True,'action': Action.SUCCES_DEL, 'user': user,'id':id,'user2':user2}
+    t = get_template('admin/user/repdel.html')
+    html = t.render(Context(dic))
+    return HttpResponse(html)
 def userlist(request):
     session = None
     try:
@@ -243,6 +264,7 @@ def userlist(request):
     if session==None:
         return redirect("/admin/")
     user = manage.searchById(request.session['userid'])
+
     t = get_template('admin/user/list.html')
     list = manage.listall()
     html = t.render(Context({'login':True,'type':Type(),'list':list,'user':user}))
@@ -257,8 +279,9 @@ def usermodform(request,id):
     if session==None:
         return redirect("/admin/")
     t = get_template('admin/user/mod.html')
-    user = manage.searchById(id)
-    html = t.render(Context({'login':True,'type':Type(), 'user':user}))
+    user1 = manage.searchById(id)
+    user = manage.searchById(request.session['userid'])
+    html = t.render(Context({'login':True,'type':Type(), 'user':user,'user1':user}))
     return HttpResponse(html)
 
 
@@ -313,7 +336,7 @@ def detailscours(request,id):
     user = manage.searchById(request.session['userid'])
     cours = managecours.searchById(id)
 
-    dic = {'login':True,'cours': cours, 'user':user}
+    dic = {'login':True,'imprimmer':True, 'cours': cours, 'user':user}
     t = get_template('admin/cours/detailscours.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
@@ -442,7 +465,8 @@ def coursobjectif(request,id):
                 cours.objectif = objectif
                 r = cours.save()
                 return redirect("/admin/cours/description/{}/".format(r),permanent=True)
-
+    cours = managecours.searchById(id)
+    dic['cours']=cours
     t = get_template('admin/cours/objectifs.html')
     codecours = managecours.getCodeCours()
     dic['action'] = Action.CREER
@@ -605,7 +629,7 @@ def controlleruser(request):
                 lastname = request.POST['lastname']
                 email = request.POST['email']
                 if type!=None and username!=None and password!=None and firstname!=None and lastname!=None and email!=None:
-                    user = User(type=type, active=True, username=username, password=password, firstname=firstname, lastname=lastname,email=email)
+                    user1 = User(type=type, active=True, username=username, password=password, firstname=firstname, lastname=lastname,email=email)
                     try:
                         valid = True
                         t = get_template('admin/user/form.html')
@@ -625,16 +649,23 @@ def controlleruser(request):
                         if not valid:
                             html = t.render(Context(dic))
                             return HttpResponse(html)
-                        user.save()
-                        if user.type.__eq__(Type.PROF):
+                        user1.save()
+                        if user1.type.__eq__(Type.PROF):
                             prof=Professor()
-                            prof.nom=user.lastname
-                            prof.prenom=user.firstname
+                            prof.nom=user1.lastname
+                            prof.prenom=user1.firstname
+                            prof.email=user1.email
                             p=Professor.objects.get(id=prof.save())
                             userprof=UserProf()
-                            userprof.user=user
+                            userprof.user=user1
                             userprof.professeur=p
                             userprof.save()
+                            subject, from_email, to = 'System descriptif cours ESIH', 'emmanuel.suy@esih.edu', prof.email
+                            link='<a href="http://ancient-ridge-9094.herokuapp.com/">http://ancient-ridge-9094.herokuapp.com/</a>'
+                            html_content ='Salut {} {}!<p> Votre compte est << {} >> et mot de passe << {} >>. Cliquer sur ce lien {} pour connecter au systeme descriptif cours de l\'ESIH.</p>'.format(prof.prenom,prof.nom,username,password,link)
+                            msg = EmailMultiAlternatives(subject, '', from_email, [to])
+                            msg.attach_alternative(html_content, "text/html")
+                            msg.send()
                         message = "The account {} has created for {} <a href=\"/admin/user/list/\">Retour</a>".format(type,firstname)
                         t = get_template('admin/user/repform.html')
                         html = t.render(Context({'login':True,'message':message,'user':user}))
@@ -644,6 +675,27 @@ def controlleruser(request):
                         t = get_template('admin/user/repform.html')
                         html = t.render(Context({'login':True,'message':message,'user':user}))
                         return HttpResponse(html)
+
+            if str(request.POST['action']).__eq__(Action.SUCCES_DEL):
+                try:
+                    user2 = manage.searchById(request.POST['id'])
+                    if user2.type.__eq__(Type.PROF):
+                        userp=UserProf.objects.get(user_id=user2.id)
+                        Professor.objects.get(id=userp.professeur.id).delete()
+                        userp.delete()
+                    user2.delete()
+                    title = 'Supression'
+                    message = "{} a ete suprimé avec succès.".format(user2)
+                    color='#999999'
+                except:
+                    title = 'Avertissement!!!'
+                    color ='red'
+                    message = "Une erreur c'est produite!  Le système n'arrive pas à supprimer l'utilisateur demandé."
+
+            dic = {'login':True,'nom': '', 'user': user,'message':message,'color':color,'title':title}
+            t = get_template('admin/user/succdel.html')
+            html = t.render(Context(dic))
+            return HttpResponse(html)
 
 
 

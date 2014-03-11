@@ -4,6 +4,7 @@ from parametrage.models import CodeProgram
 from parametrage.models import CodeCours
 from admin.models import User, Cours, UserProf
 from professeur.models import Professor, Formation, Experience, CompetenceOrg, CompetenceCom, CompetenceInfo
+from django.core.mail import EmailMultiAlternatives
 class ManageEtablissement:
     def save(self,etablissement):
         etablissement.save()
@@ -24,8 +25,8 @@ class ManageCodeProgram:
         list = CodeProgram.objects.all()
         return list
 
-    def searchById(self,id):
-        codeprogram = CodeProgram.objects.get(id=id)
+    def searchById(self,code):
+        codeprogram = CodeProgram.objects.get(code=code)
         return codeprogram
 
     def existingcode(self,codeprogram):
@@ -85,6 +86,17 @@ class ManageUser:
     def searchById(self,id):
         user = User.objects.get(id=id)
         return user
+    def createUserProf(self,username,prof):
+        password='password'
+        user=User(type="Prof", active=True, username=username, password=password, firstname=prof.prenom, lastname=prof.nom,email=prof.email)
+        UserProf(user=User.objects.get(id=user.save()),professeur=prof).save()
+        subject, from_email, to = 'System descriptif cours ESIH', 'emmanuel.suy@esih.edu', prof.email
+        link='<a href="http://ancient-ridge-9094.herokuapp.com/">http://ancient-ridge-9094.herokuapp.com/</a>'
+        html_content ='Salut {} {}!<p> Votre compte est << {} >> et mot de passe << {} >>. Cliquer sur ce lien {} pour connecter au systeme descriptif cours de l\'ESIH.</p>'.format(prof.prenom,prof.nom,username,password,link)
+        msg = EmailMultiAlternatives(subject, '', from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        print msg.send()
+
 class ManageProfesseur:
     def isexistmail(self,email):
         user = User.objects.filter(email=email)

@@ -6,7 +6,7 @@
     <table class="table" summary="Meeting Results">
         <thead>
         <tr>
-            <th colspan="6" style="background: #fff;height:50px"><a href="/prof/form/" style="margin-left:5px">Create</a>
+            <th colspan="6" style="background: #fff;height:50px"><a href="/profform/" style="margin-left:5px">Create</a>
             </th>
         </tr>
         <tr>
@@ -24,8 +24,7 @@
             <td>{{professeur.prenom}}</td>
             <td>{{professeur.telephone}}</td>
             <td>{{professeur.email}}</td>
-            <td><a href="/editcv/{{professeur.id}}/">Modifier CV</a> <a href="/viewcv/{{professeur.id}}/">Voir CV</a> <a href="../change/{{professeur.id}}/">Change</a> <a
-                    href="../change/{{professeur.id}}/">Suprimer</a></td>
+            <td><a href="/editcv/{{professeur.id}}/">Modifier CV</a> <a href="/viewcv/{{professeur.id}}/">Voir CV</a> <a href="/profchange/{{professeur.id}}/">Change</a></td>
         </tr>
         {% endfor %}
         </tbody>

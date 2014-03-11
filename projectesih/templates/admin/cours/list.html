@@ -41,7 +41,19 @@
 
                     </ul>
                 </td>
-                <td><a href="/admin/cours/details/{{cours.id}}/">Voir détails cours</a></td>
+                <td>
+                    <ul class="menuprof">
+                        <li><a href="/admin/cours/details/{{cours.id}}/">Voir détails cours</a>
+                            <ul>
+                                <li><a href="/objectifcours/{{cours.id}}/">Objectifs</a></li>
+                                <li><a href="/plancours/{{cours.id}}/">Plan</a></li>
+                                <li><a href="/ressourcecours/{{cours.id}}/">Ressources</a></li>
+                                <li><a href="/evaluationcours/{{cours.id}}/">Evaluation</a></li>
+                                <li><a href="/affectationcours/{{cours.id}}/">Affectation</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

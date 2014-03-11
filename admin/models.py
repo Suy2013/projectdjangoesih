@@ -11,6 +11,9 @@ class User(models.Model):
     lastname = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     type = models.CharField(max_length=100)
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super(User, self).save(force_insert, force_update, using, update_fields)
+        return  self.id
 
 class UserProf(models.Model):
     professeur = models.ForeignKey(Professor,null=True)
@@ -62,3 +65,4 @@ class Cours(models.Model):
 class Type:
     PROF = "Prof"
     ADMIN = "Admin"
+    SUPER = "Super Admin"

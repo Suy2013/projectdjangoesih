@@ -3,13 +3,14 @@
 {% block content %}
 <div id="form" class="petitform1">
     <h1>Objectif cours {{titrecours}}</h1><br/><br/>
+
     <form method="POST" action="http://{{request.get_host}}{{ request.get_full_path }}">{% csrf_token %}
         <input type="hidden" name="action" value="{{action}}"/>
         <table>
             <tr><td><strong>{{error1}}</strong></td></tr>
             <tr>
                 <td>
-                    <textarea id="objectif" name="objectif"></textarea>
+                    <textarea id="objectif" name="objectif">{{ cours.objectif | safe }}</textarea>
                     <script type="text/javascript">
 	                    CKEDITOR.replace('objectif',{
 	                        height: 380,

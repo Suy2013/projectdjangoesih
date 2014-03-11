@@ -16,7 +16,7 @@ from admin.views import home
 from admin.views import userform, coursform, coursobjectif, coursdescription, coursplan, coursressource,coursevaluation, courslist
 from admin.views import userlist
 from admin.views import controlleruser,affectprof,detailscours
-from admin.views import logout
+from admin.views import logout,deluser
 from admin.views import usermodform
 from professeur.views import formprof, listprof, controllerprof, modprof, editCV,voircv,profindex
 admin.autodiscover()
@@ -47,6 +47,7 @@ urlpatterns = patterns('',
     url(r'^admin/user/controlleruser/$',controlleruser),
     url(r'^logout/$',logout),
     url(r'^admin/user/change/(\d+)/$',usermodform),
+     url(r'^admin/user/delete/(\d+)/$',deluser),
     url(r'^admin/cours/form/$',coursform),
     url(r'^admin/cours/$',courslist),
     url(r'^admin/cours/objectif/(\d+)/$',coursobjectif),
@@ -58,10 +59,10 @@ urlpatterns = patterns('',
     url(r'^admin/cours/details/(\d+)/$',detailscours),
     url(r'^admin/professeurs/',listprof),
     url(r'^viewcv/(\d+)/$',voircv),
-    url(r'^prof/form/',formprof),
-    url(r'^prof/',profindex),
-    url(r'^prof/controller/',controllerprof),
-    url(r'^prof/change/(\d+)/$',modprof),
+    url(r'^profform/',formprof),
+    url(r'^profindex/',profindex),
+    url(r'^profcontroller/',controllerprof),
+    url(r'^profchange/(\d+)/$',modprof),
     url(r'^editcv/(\d+)/$',editCV),
     url(r'^objectifcours/(\d+)/$',coursobjectif),
     url(r'^descriptioncours/(\d+)/$',coursdescription),

@@ -3,7 +3,7 @@
 {% block content %}
 <div id="form" class="petitform">
     <h1>Informations personnelles</h1><br/><br/>
-    <form method="POST" action="../controller/">{% csrf_token %}
+    <form method="POST" action="/profcontroller/">{% csrf_token %}
 
         <input type="hidden" value="{{action}}" name="action">
         <table>
@@ -13,11 +13,11 @@
             <tr>
                 <td><label>Compte</label></td>
                 <td>
-                    <input type="text" name="nom" value="{{professor.nom}}"/>
+                    <input type="text" name="userprof" value=""/>
                     <br/>
 
                 </td>
-                <td><strong></strong></td>
+                <td><strong>{{error7}}</strong></td>
             </tr>
             <tr>
                 <td><label>Nom :</label></td>
@@ -76,7 +76,7 @@
                 <td><strong>{{error8}}</strong></td>
             </tr>
              <tr>
-                <td colspan="3" align="right"><input type="submit"></td>
+                <td></td><td align="right"><input type="submit"></td><td></td>
             </tr>
         </table>
     </form>

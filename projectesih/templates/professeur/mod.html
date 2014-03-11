@@ -3,7 +3,7 @@
 {% block content %}
 <div id="form" class="petitform">
     <h1>Informations personnelles</h1><br/><br/>
-    <form method="POST" action="../controller/">{% csrf_token %}
+    <form method="POST" action="/profcontroller/">{% csrf_token %}
         <input type="hidden" value="{{action}}" name="action">
         <table>
             <tr>

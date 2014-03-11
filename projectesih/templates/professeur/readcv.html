@@ -113,28 +113,5 @@
     </tbody>
 </table>
 </div>
-    <script type="text/javascript">
-
-    function PrintElem(elem)
-    {
-        Popup($(elem).html());
-    }
-
-    function Popup(data)
-    {
-        var mywindow = window.open('', 'editercv');
-        mywindow.document.write('<html><head><title>Curriculum Vitae</title>');
-        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(data);
-        mywindow.document.write('</body></html>');
-
-        mywindow.print();
-        mywindow.close();
-
-        return true;
-    }
-
-</script>
 </div>
 {% endblock %}

@@ -282,7 +282,7 @@ def delcodecours(request,id):
          t = get_template('parametrage/codecours/repmod.html')
          html = t.render(Context(dic))
          return HttpResponse(html)
-    dic = {'action': Action.SUCCES_DEL, 'user': user,'id':id}
+    dic = {'login':True,'action': Action.SUCCES_DEL, 'user': user,'id':id}
     t = get_template('parametrage/codecours/repdel.html')
     html = t.render(Context(dic))
     return HttpResponse(html)
@@ -319,7 +319,7 @@ def controllercodecours(request):
             codecours.code = "{}-{}{}-{}".format(etablissement.nom, str(request.POST['grade']),
                                                  str(request.POST['semestre']), str(request.POST['nomcours']))
             manageCodeCours.save(codecours)
-            dic = {'message': "L'enregistrement {} a été effectué avec succès.".format(codecours.code) , 'user': user}
+            dic = {'login':True,'message': "L'enregistrement {} a été effectué avec succès.".format(codecours.code) , 'user': user}
             t = get_template('parametrage/codecours/repform.html')
             html = t.render(Context(dic))
             return HttpResponse(html)
@@ -536,6 +536,11 @@ def controllercodeprogram(request):
                 t = get_template('parametrage/codeprogram/repform.html')
                 html = t.render(Context(dic))
                 return HttpResponse(html)
+            else:
+                t = get_template('parametrage/codeprogram/codeExist.html')
+                html = t.render(Context(dic))
+                return HttpResponse(html)
+
 
         # if str(request.POST['action']).__eq__(Action.DEL):
         #     id = request.POST['id']
@@ -571,6 +576,7 @@ def controllercodeprogram(request):
         #     return HttpResponse(html)
         if str(request.POST['action']).__eq__(Action.SUCCES_MOD):
             codeprogram = manageCodeProgram.searchById(request.POST['id'])
+            dic = {'login':True,'code': '', 'user': user}
             empty = False
             if str(request.POST.get('domaine')).__eq__(''):
                 dic['error1'] = 'Field empty'
@@ -599,7 +605,8 @@ def controllercodeprogram(request):
                 codeprogram.typecours = request.POST.get('typecours')
                 codeprogram.langue = request.POST.get('langue')
                 codeprogram.save()
-            dic = {'login':True,'code': '', 'user': user,'message':'Le code programme a été modifié avec succès.'}
+
+            dic['message']='Le code programme a été modifié avec succès.'
             t = get_template('parametrage/codeprogram/repmod.html')
             html = t.render(Context(dic))
             return HttpResponse(html)
