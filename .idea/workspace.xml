@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52d0e99a-c29d-426c-8f34-f343a8430cf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/databasemanager.py" afterPath="$PROJECT_DIR$/projectesih/databasemanager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/description.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/description.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/evaluation.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/evaluation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/index.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/masterpage.html" afterPath="$PROJECT_DIR$/projectesih/templates/masterpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/plan.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/plan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/professeur/readcv.html" afterPath="$PROJECT_DIR$/projectesih/templates/professeur/readcv.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/ressource.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/ressource.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/urls.py" afterPath="$PROJECT_DIR$/projectesih/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/views.py" afterPath="$PROJECT_DIR$/admin/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/professeur/views.py" afterPath="$PROJECT_DIR$/professeur/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/settings.py" afterPath="$PROJECT_DIR$/projectesih/settings.py" />
     </list>
     <ignored path="projectesih.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,13 +61,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="34" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.6910569" vertical-offset="442" max-vertical-offset="12206">
+            <state line="40" column="13" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="12206">
               <folding>
                 <element signature="e#46#81#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.24203822" vertical-offset="1514" max-vertical-offset="2193">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,15 +94,6 @@
         <entry file="file://$PROJECT_DIR$/professeur/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="189" column="29" selection-start="7389" selection-end="7389" vertical-scroll-proportion="0.0" vertical-offset="2958" max-vertical-offset="7293">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="codeExist.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/codeExist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="204">
               <folding />
             </state>
           </provider>
@@ -160,7 +149,6 @@
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/mod.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/list.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/form.html" />
-        <option value="$PROJECT_DIR$/projectesih/settings.py" />
         <option value="$PROJECT_DIR$/parametrage/models.py" />
         <option value="$PROJECT_DIR$/projectesih/templates/404.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/codeExist.html" />
@@ -180,6 +168,7 @@
         <option value="$PROJECT_DIR$/projectesih/templates/admin/index.html" />
         <option value="$PROJECT_DIR$/projectesih/databasemanager.py" />
         <option value="$PROJECT_DIR$/admin/views.py" />
+        <option value="$PROJECT_DIR$/projectesih/settings.py" />
       </list>
     </option>
   </component>
@@ -967,13 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="17" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.0" vertical-offset="627" max-vertical-offset="2193">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parametrage/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="41" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0" vertical-offset="219" max-vertical-offset="748">
@@ -1106,10 +1088,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="34" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.6910569" vertical-offset="442" max-vertical-offset="12206">
+        <state line="40" column="13" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="12206">
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.24203822" vertical-offset="1514" max-vertical-offset="2193">
+          <folding />
         </state>
       </provider>
     </entry>
