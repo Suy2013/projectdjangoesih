@@ -18,7 +18,7 @@ from admin.views import userlist
 from admin.views import controlleruser,affectprof,detailscours
 from admin.views import logout,deluser
 from admin.views import usermodform
-from professeur.views import formprof, listprof, controllerprof, modprof, editCV,voircv,profindex
+from professeur.views import formprof, listprof, controllerprof, modprof, editCV,voircv,profindex, listcoursprof
 admin.autodiscover()
 urlpatterns = patterns('',
 	url(r'^help/$', help),
@@ -59,6 +59,7 @@ urlpatterns = patterns('',
     url(r'^admin/cours/details/(\d+)/$',detailscours),
     url(r'^admin/professeurs/',listprof),
     url(r'^viewcv/(\d+)/$',voircv),
+    url(r'^cours/(\d+)/$',listcoursprof),
     url(r'^profform/',formprof),
     url(r'^profindex/',profindex),
     url(r'^profcontroller/',controllerprof),

@@ -3,12 +3,13 @@ from django.template import Context
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from projectesih.util.fonctionalite import Action
-from projectesih.databasemanager import ManageProfesseur,ManageUser
+from projectesih.databasemanager import ManageProfesseur,ManageUser,ManageCours
 from professeur.models import Professor, Experience, Formation, CompetenceOrg, CompetenceCom, CompetenceInfo
 
 # Create your views here.
 manageProf = ManageProfesseur()
 manageUser = ManageUser()
+manageCours = ManageCours()
 
 
 def formprof(request):
@@ -174,6 +175,21 @@ def profindex(request):
 
     t = get_template('professeur/readcv.html')
     html = t.render(Context(dic))
+    return HttpResponse(html)
+
+def listcoursprof(request,id):
+    session = None
+    try:
+        session = request.session['userid']
+    except KeyError:
+        pass
+    if session==None:
+        return redirect("/admin/")
+    user = manageUser.searchById(request.session['userid'])
+    t = get_template('admin/cours/list.html')
+    list = manageCours.listcp(id)
+    return HttpResponse(list)
+    html = t.render(Context({'login':True,'list':list,'user':user}))
     return HttpResponse(html)
 
 def editCV(request, id):

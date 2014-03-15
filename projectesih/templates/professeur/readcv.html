@@ -113,5 +113,25 @@
     </tbody>
 </table>
 </div>
+<script type="text/javascript">
+
+        function PrintElem(elem) {
+            Popup($(elem).html());
+        }
+
+        function Popup(data) {
+            var mywindow = window.open('', 'Curiculum Vitae');
+            mywindow.document.write('<html><head><title>Curiculum Vitae</title>');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(data);
+            mywindow.document.write('</body></html>');
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+    </script>
 </div>
 {% endblock %}

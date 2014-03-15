@@ -161,13 +161,16 @@ def home(request):
             for code in codes:
                 dictio[code.grade] = []
             for code in codes:
-                cours = managecours.searchByCode(code)
-                c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
-                if cours != None:
-                #volumeH.append(managecours.calculNbrHreCours(cours))
-                    list = dictio[code.grade]
-                    list.append(managecours.calculNbrHreCours(cours))
-                    dictio[code.grade] = list
+                try:
+                    cours = managecours.searchByCode(code.id)
+                    #c = "{}--{}".format(c, managecours.calculNbrHreCours(cours))
+                    if cours != None:
+                     #volumeH.append(managecours.calculNbrHreCours(cours))
+                        list = dictio[code.grade]
+                        list.append(managecours.calculNbrHreCours(cours.ects))
+                        dictio[code.grade] = list
+                except:
+                    pass
             l = []
             for key, value in dictio.items():
                 color = 'red'
@@ -205,7 +208,7 @@ def home(request):
             if user.type.__eq__(Type.PROF):
                 profe=UserProf.objects.get(user_id=user.id).professeur
                 dic['userprof']=profe
-                return redirect("/prof/{}/".format(profe.id))
+                return redirect("/profindex/{}/".format(profe.id))
             try:
                 choix = request.GET['choixdash']
             except:
@@ -504,6 +507,8 @@ def coursdescription(request,id):
     codecours = managecours.getCodeCours()
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
+    cours = managecours.searchById(id)
+    dic['cours']=cours
     html = t.render(Context(dic))
     return HttpResponse(html)
 
@@ -535,6 +540,8 @@ def coursplan(request, id):
 
     t = get_template('admin/cours/plan.html')
     codecours = managecours.getCodeCours()
+    cours = managecours.searchById(id)
+    dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
     html = t.render(Context(dic))
@@ -568,6 +575,8 @@ def coursressource(request,id):
 
     t = get_template('admin/cours/ressource.html')
     codecours = managecours.getCodeCours()
+    cours = managecours.searchById(id)
+    dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
     html = t.render(Context(dic))
@@ -601,6 +610,8 @@ def coursevaluation(request,id):
 
     t = get_template('admin/cours/evaluation.html')
     codecours = managecours.getCodeCours()
+    cours = managecours.searchById(id)
+    dic['cours']=cours
     dic['action'] = Action.CREER
     dic['codecours'] = codecours
     html = t.render(Context(dic))

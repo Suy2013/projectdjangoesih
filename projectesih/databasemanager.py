@@ -143,13 +143,27 @@ class ManageCours:
     def searchById(self,id):
         cours = Cours.objects.get(id=id)
         return cours
-    def searchByCode(self,code):
-        cours = Cours.objects.filter(codecours_id=code.id)
+
+    def searchByCode(self,id):
+        cours = Cours.objects.filter(codecours_id=id)
         return cours[0]
+
     def listall(self):
         list = Cours.objects.all()
         return list
-    def calculNbrHreCours(self,cours):
-        return cours.ects *  15
+
+    def listcp(self,id):
+        list = Cours.objects.all()
+        list1 = []
+        for cours in list:
+            for prof in cours.prof.all():
+                if prof.id==id:
+                    list1.append(cours.codecours)
+                print prof.id,id
+        print list1
+        return list1
+
+    def calculNbrHreCours(self,ects):
+        return ects *  15
 
 
