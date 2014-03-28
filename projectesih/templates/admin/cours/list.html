@@ -3,21 +3,22 @@
 {% block content %}
 {% load staticfiles %}
 <div class="list">
-    <h1>Users</h1>
+    <h1>Utilisateur</h1>
     <table class="table" summary="Meeting Results">
         <thead>
         <tr>
-            <th colspan="6" style="background: #fff;height:50px"><a href="form/" style="margin-left:5px">Create</a>
+            <th colspan="6" style="background: #fff;height:50px"><a href="form/" style="margin-left:5px">Créer nouveau</a>
             </th>
         </tr>
         <tr>
-            <th>Program</th>
+            <th>Programme</th>
             <th>Code cours</th>
             <th>Crédits ECTS</th>
             <th>Format</th>
             <!--<th>Pré requis</th>-->
             <th>Public cible</th>
             <th>Professeurs</th>
+            <th></th>
             <th></th>
         </tr>
         </thead>
@@ -27,9 +28,21 @@
                 <td>{{cours.codecours.codeprogram.code }}</td>
                 <td>{{cours.codecours.code}}</td>
                 <td>{{cours.ects}}</td>
-                <td>{{cours.format}}</td>
+                <td>
+                    <ul>
+                    {% for item in cours.format %}
+                        <li>{{item}}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
                 <!--<td>cours.</td>-->
-                <td>{{cours.public}}</td>
+                <td>
+                    <ul>
+                    {% for item in cours.public %}
+                        <li>{{item}}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <ul class="menuprof">
                         <li>Voir
@@ -56,6 +69,7 @@
                         </li>
                     </ul>
                 </td>
+                <td><a href="/deldescriptioncours/{{ cours.id }}/">Supprimer</a> </td>
             </tr>
             {% endfor %}
         </tbody>

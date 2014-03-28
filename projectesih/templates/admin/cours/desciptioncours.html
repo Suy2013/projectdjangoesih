@@ -5,6 +5,7 @@
     <h1>Cours</h1><br/><br/>
     <form method="POST" action="/admin/cours/form/">{% csrf_token %}
         <input type="hidden" name="action" value="{{action}}">
+        <strong>{{ errorintegrite }}</strong>
         <table>
             <tr>
                 <td><label>Code cours :</label></td>
@@ -58,9 +59,9 @@
                 <td>
                     <select name="prerequis">
                         <option></option>
-                        <option>Etudiants</option>
-                        <option>Professionnels</option>
-                        <option>Autres</option>
+                        {% for c in list %}
+                            <option value="{{ c.id }}">{{ c.codecours.nomcours }}</option>
+                        {% endfor %}
                     </select>
                 </td>
                  <td style="vertical-align: top;"><strong>{{error5}}</strong></td>
@@ -68,7 +69,7 @@
             <tr>
                 <td style="vertical-align: top;"><label>Format :</label></td>
                 <td>
-                    <input type="checkbox" name="magistrale"/>Présentation magistrale &emsp;
+                    <input type="checkbox" name="magistrale" value="Présentation magistrale"/>Présentation magistrale &emsp;
                     <input type="checkbox" name="tp" value="TP"/>TP &emsp;
                     <input type="checkbox" name="td" value="TD"/>TD &emsp;<br/><br/>
                     <input type="checkbox" name="a" value="Autre"/>Autre &emsp; <input type="text" name="autre" style="width: 205px;"/>

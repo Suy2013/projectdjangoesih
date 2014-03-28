@@ -25,8 +25,8 @@ class ManageCodeProgram:
         list = CodeProgram.objects.all()
         return list
 
-    def searchById(self,code):
-        codeprogram = CodeProgram.objects.get(code=code)
+    def searchById(self,id):
+        codeprogram = CodeProgram.objects.get(id=id)
         return codeprogram
 
     def existingcode(self,codeprogram):
@@ -38,6 +38,12 @@ class ManageCodeProgram:
     def code(self,codeprogram):
         cod = "{}-{}-{}-{}-{}".format(codeprogram.domaine,codeprogram.mention,codeprogram.specialite,codeprogram.typecours,codeprogram.langue)
         return cod
+    def isaffect(self,program):
+        for cours in Cours.objects.all():
+            if cours.codecours.codeprogram.id==program.id:
+                return True
+        return False
+
 class ManageCodeCours:
     def save(self,codecours):
         codecours.save()
@@ -55,6 +61,11 @@ class ManageCodeCours:
     def findEtablissement(self,id):
         etablissement = Etablissement.objects.get(id=id)
         return etablissement
+    def isaffect(self,codecours):
+        for cours in Cours.objects.all():
+            if cours.codecours.id==codecours.id:
+                return True
+        return False
 
 class ManageUser:
     def isexistuser(self,username,password):

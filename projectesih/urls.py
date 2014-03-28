@@ -17,7 +17,7 @@ from admin.views import userform, coursform, coursobjectif, coursdescription, co
 from admin.views import userlist
 from admin.views import controlleruser,affectprof,detailscours
 from admin.views import logout,deluser
-from admin.views import usermodform
+from admin.views import usermodform, delcours, seach
 from professeur.views import formprof, listprof, controllerprof, modprof, editCV,voircv,profindex, \
     listcoursprof,delcompetencesorg, delcompetencescom, delformations, delcompetencesinfo, delexperiences
 admin.autodiscover()
@@ -61,6 +61,7 @@ urlpatterns = patterns('',
     url(r'^admin/professeurs/',listprof),
     url(r'^viewcv/(\d+)/$',voircv),
     url(r'^cours/(\d+)/$',listcoursprof),
+    url(r'^deldescriptioncours/(\d+)/',delcours),
     url(r'^profform/',formprof),
     url(r'^profindex/',profindex),
     url(r'^profcontroller/',controllerprof),
@@ -78,5 +79,6 @@ urlpatterns = patterns('',
     url(r'^evaluationcours/(\d+)/$',coursevaluation),
     url(r'^affectationcours/(\d+)/$',affectprof),
     url(r'^detailscours/(\d+)/$',detailscours),
+    url(r'^seachad/$',seach)
     #url(r'^admin/user/delete/(\d+)/$',usermodform),
 )

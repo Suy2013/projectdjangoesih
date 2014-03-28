@@ -13,7 +13,7 @@ from projectesih.databasemanager import ManageUser, ManageCours, ManageCodeCours
 from admin.models import Type, Cours,User,UserProf
 from django.db import IntegrityError
 from django.shortcuts import redirect
-from parametrage.models import CodeCours
+from parametrage.models import CodeCours, CodeProgram
 from professeur.models import Professor
 from django.core.mail import EmailMultiAlternatives
 # Create your views here.
@@ -43,11 +43,12 @@ def home(request):
             profe=UserProf.objects.get(user_id=user.id).professeur
             dic['userprof']=profe
             return redirect("/prof/{}/".format(profe.id))
-        #try:
-        choix = request.GET['choixdash']
+        try:
+            choix = request.GET['choixdash']
+        except:
+            choix = 'v'
         if choix.__eq__('v'):
             codes = CodeCours.objects.all()
-
             dictio = {}
             c = ""
             for code in codes:
@@ -370,7 +371,7 @@ def usermodform(request,id):
     t = get_template('admin/user/mod.html')
     user1 = manage.searchById(id)
     user = manage.searchById(request.session['userid'])
-    html = t.render(Context({'login':True,'type':Type(), 'user':user,'user1':user}))
+    html = t.render(Context({'login':True,'type':Type(),'action':Action.CREER, 'user':user,'user1':user1}))
     return HttpResponse(html)
 
 
@@ -428,7 +429,8 @@ def detailscours(request,id):
     user = manage.searchById(request.session['userid'])
     cours = managecours.searchById(id)
 
-    dic = {'login':True,'imprimmer':True, 'cours': cours, 'user':user}
+    list = managecours.listall()
+    dic = {'login':True,'imprimmer':True, 'cours': cours, 'user':user, 'list':list}
     if user.type.__eq__("Prof"):
         p=manageprof.getProf(user)
         dic['userprof']=p
@@ -436,6 +438,38 @@ def detailscours(request,id):
     html = t.render(Context(dic))
     return HttpResponse(html)
 
+def delcours(request,id):
+    session = None
+    try:
+        session = request.session['userid']
+    except KeyError:
+        pass
+    if session == None:
+        return redirect("/admin/")
+    user = manage.searchById(request.session['userid'])
+    if request.method=='POST':
+        cours = Cours.objects.get(id=request.POST['id'])
+        for r in cours.prerequis.all():
+            cours.prerequis.remove(r)
+
+        for prof in cours.prof.all():
+            cours.prof.remove(prof)
+        cours.delete()
+        return redirect('/admin/cours/')
+    try:
+
+        cours = Cours.objects.get(id=id)
+
+    except:
+        message = "Une erreur c'est produite!  Le système n'arrive pas à trouver le code demandé."
+        dic = {'login':True,'nom': '', 'user': user,'message':message,'color':'red','title':'Avertissement!!!'}
+        t = get_template('admin/cours/succdel.html')
+        html = t.render(Context(dic))
+        return HttpResponse(html)
+    dic = {'login':True,'action': Action.SUCCES_DEL, 'user': user,'id':id,'cours':cours}
+    t = get_template('admin/cours/repdel.html')
+    html = t.render(Context(dic))
+    return HttpResponse(html)
 
 def coursform(request):
     session = None
@@ -447,7 +481,7 @@ def coursform(request):
         return redirect("/admin/")
     user = manage.searchById(request.session['userid'])
     professors =  ManageProfesseur().listall()
-    dic = {'login':True}
+    dic = {'login':True,'list':Cours.objects.all()}
     dic['user'] = user
     dic['professors'] = professors
     if 'action' in request.POST:
@@ -517,10 +551,19 @@ def coursform(request):
         if valid:
             code = managecodecours.searchById(codecours)
             cours = Cours(codecours=code, ects=ects, public=public, format=format)
-            r=cours.save()
-            cours.prof.add(prof)
-            return redirect("/admin/cours/objectif/{}/".format(r))
-        else:
+            try:
+                r=cours.save()
+                cours.prof.add(prof)
+                if prerequis:
+                    crs = Cours.objects.get(id=prerequis)
+                    if crs.codecours!=cours.codecours:
+                        cours.prerequis.add(crs)
+                return redirect("/admin/cours/objectif/{}/".format(r))
+            except IntegrityError:
+                dic['errorintegrite'] = 'Ce code existe deja pour un cours'
+                valid = False
+
+        if not valid:
             t = get_template('admin/cours/desciptioncours.html')
             codecours = managecours.getCodeCours()
             dic['action'] = Action.CREER
@@ -752,6 +795,10 @@ def controlleruser(request):
                 if type!=None and username!=None and password!=None and firstname!=None and lastname!=None and email!=None:
                     user1 = User(type=type, active=True, username=username, password=password, firstname=firstname, lastname=lastname,email=email)
                     try:
+                        user1.id=request.POST['id']
+                    except:
+                        pass
+                    try:
                         valid = True
                         t = get_template('admin/user/form.html')
                         dic = {'login':True,'type':Type(),'action':Action.CREER,'user':user}
@@ -760,13 +807,13 @@ def controlleruser(request):
                         dic['firstname'] = str(firstname)
                         dic['lastname'] = str(lastname)
                         dic['email'] = str(email)
-
-                        if manager.iscreateuser(username):
-                            dic['error2'] = 'Already exist'
-                            valid = False
-                        if manager.isexistmail(email):
-                            dic['error6'] = 'Already exist'
-                            valid = False
+                        if 'id' in request.POST:
+                            if manager.iscreateuser(username):
+                                dic['error2'] = 'Already exist'
+                                valid = False
+                            if manager.isexistmail(email):
+                                dic['error6'] = 'Already exist'
+                                valid = False
                         if not valid:
                             html = t.render(Context(dic))
                             return HttpResponse(html)
@@ -798,25 +845,125 @@ def controlleruser(request):
                         return HttpResponse(html)
 
             if str(request.POST['action']).__eq__(Action.SUCCES_DEL):
-                try:
-                    user2 = manage.searchById(request.POST['id'])
-                    if user2.type.__eq__(Type.PROF):
-                        userp=UserProf.objects.get(user_id=user2.id)
-                        Professor.objects.get(id=userp.professeur.id).delete()
-                        userp.delete()
-                    user2.delete()
-                    title = 'Supression'
-                    message = "{} a ete suprimé avec succès.".format(user2)
-                    color='#999999'
-                except:
-                    title = 'Avertissement!!!'
-                    color ='red'
-                    message = "Une erreur c'est produite!  Le système n'arrive pas à supprimer l'utilisateur demandé."
+                #try:
+                user2 = manage.searchById(request.POST['id'])
+                if user2.type.__eq__(Type.PROF):
+                    userp=UserProf.objects.filter(user_id=user2.id)[0]
+                    p = Professor.objects.get(id=userp.professeur.id)
+                    for us in UserProf.objects.all():
+                        if us.id==user2.id:
+                            us.delete()
+                    p.delete()
+
+                user2.delete()
+                title = 'Supression'
+                message = "{} a ete suprimé avec succès.".format(user2)
+                color='#999999'
+                #except:
+                    # title = 'Avertissement!!!'
+                    # color ='red'
+                    # message = "Une erreur c'est produite!  Le système n'arrive pas à supprimer l'utilisateur demandé."
 
             dic = {'login':True,'nom': '', 'user': user,'message':message,'color':color,'title':title}
             t = get_template('admin/user/succdel.html')
             html = t.render(Context(dic))
             return HttpResponse(html)
 
+def seach(request):
+    session = None
+    try:
+        session = request.session['userid']
+    except KeyError:
+        pass
+    if session == None:
+        return redirect("/admin/")
+    user = manage.searchById(request.session['userid'])
+    list = []
+    try:
+        query = request.GET['q']
+        try:
+        #Codecours query
+            lstid = []
+            try:
+                lstid = CodeCours.objects.extra(where=["code LIKE %s"], params=['%'+query+'%'])
+            except:
+                pass
+            try:
+                lst = CodeCours.objects.extra(where=["nomcours LIKE %s"], params=['%'+query+'%'])
+                if len(lst)>0:
+                    for it in lst:
+                        lstid.append(it)
+            except:
+                pass
+            if len(lstid):
+                for cod in lstid:
+                    try:
+                        cours = Cours.objects.get(codecours_id=cod.id)
+                        list.append(("Cours","/admin/cours/details/{}/".format(cours.id),cours.codecours.nomcours))
+                    except:
+                        pass
+        except:
+            pass
+
+        try:
+            lstid = CodeProgram.objects.extra(where=["code LIKE %s"], params=['%'+query+'%'])
+            print lstid
+            for cod in lstid:
+                try:
+                    codcours = CodeCours.objects.get(codeprogram_id=cod.id)
+                    cours = Cours.objects.get(codecours_id=codcours.id)
+                    list.append(("Cours","/admin/cours/details/{}/".format(cours.id),cours.codecours.nomcours))
+                except:
+                    pass
+        except:
+            pass
+
+        try:
+            lstid = []
+            lst = User.objects.extra(where=["firstname LIKE %s"], params=['%'+query+'%'])
+            if len(lst)>0:
+                for it in lst:
+                    lstid.append(it)
+
+            lst = User.objects.extra(where=["lastname LIKE %s"], params=['%'+query+'%'])
+            if len(lst)>0:
+                for it in lst:
+                    lstid.append(it)
+
+            lst = User.objects.extra(where=["username LIKE %s"], params=['%'+query+'%'])
+            if len(lst)>0:
+                for it in lst:
+                    lstid.append(it)
+
+            print lstid
+
+            # lst = User.objects.extra(where=["firstname LIKE %s"], params=['%'+query+'%'])
+            # if len(lst)>0:
+            #     lstid.append(it for it in lst)
+            print lstid
+            for u in lstid:
+                if u.type.__eq__(Type.PROF):
+                    try:
+                        prof = UserProf.objects.get(user_id=u.id).professeur
+                        desc = UserProf.objects.get(user_id=u.id).user.firstname+' '+UserProf.objects.get(user_id=u.id).user.lastname
+                        try:
+                            for co in Cours.objects.all():
+                                for p in co.prof.all():
+                                    if p.id == prof.id:
+                                        desc = desc + "<br/>--"+co.codecours.nomcours
+                        except:
+                            pass
+
+                        list.append(("Professeur","/viewcv/{}/".format(prof.id),desc))
+                    except:
+                        pass
+        except:
+            pass
+
+    except:
+        pass
+    t = get_template('admin/search.html')
+    html = t.render(Context({'login':True,'type':Type(),'list':list,'user':user}))
+    return HttpResponse(html)
 
 

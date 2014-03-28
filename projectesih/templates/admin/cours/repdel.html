@@ -6,10 +6,10 @@
     <div>
         <table>
             <tr>
-                <td>Voulez-vous vraiment suprimer ce {{cours}}? <a href="/parametrage/codeprogram/list/">retour</a></td>
+                <td>Voulez-vous vraiment suprimer ce {{cours}}? <a href="/admin/cours/">retour</a></td>
             </tr>
             <tr>
-                <td align="right"><form method="post" action="/admin/cours/">{% csrf_token %}
+                <td align="right"><form method="post" action="/deldescriptioncours/{{ id }}/">{% csrf_token %}
                      <input type="hidden" value="{{action}}" name="action">
                      <input type="hidden" value="{{id}}" name="id">
                     <input type="submit" value="Oui"/>

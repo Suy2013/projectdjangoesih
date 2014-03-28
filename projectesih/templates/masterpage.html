@@ -56,9 +56,9 @@
             <h1>ESIH</h1>
         </div>
         {% ifequal login True %}
-            <div class="middle">
-                <form action="">
-                    <input type="text" placeholder="Search"/>
+            <div class="middle" >
+                <form {% ifequal user.type "Prof" %} action="/seachp/" {% else %} action="/seachad/" {% endifequal %}>
+                    <input type="text" placeholder="Search" name="q"/>
                     <input type="submit" value="Go"/>
                 </form>
                 {% ifequal imprimmer True %}
@@ -111,7 +111,7 @@
                             <a href="/parametrage/etablissement/list/">Etablissement</a>
                         </li>
                         <li>
-                            <a href="/parametrage/codeprogram/list/">Program</a>
+                            <a href="/parametrage/codeprogram/list/">Programme</a>
                         </li>
                         <li>
                             <a href="/parametrage/codecours/list/">Cours</a>
@@ -130,7 +130,7 @@
                             <a href="/parametrage/etablissement/list/">Etablissement</a>
                         </li>
                         <li>
-                            <a href="/parametrage/codeprogram/list/">Program</a>
+                            <a href="/parametrage/codeprogram/list/">Programme</a>
                         </li>
                         <li>
                             <a href="/parametrage/codecours/list/">Cours</a>

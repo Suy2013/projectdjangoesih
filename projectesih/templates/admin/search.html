@@ -1,0 +1,27 @@
+{% extends "masterpage.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<div class="list">
+    <h1>Search</h1>
+    <table class="table" summary="Meeting Results">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Search</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for t,s,d in list %}
+            <tr>
+                <td><a href="{{s | safe}}" style="background: transparent;font-size: 12px;color: #000">{{ t | safe }}</a></td>
+                <td><a href="{{s | safe}}" style="background: transparent">{{d | safe}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

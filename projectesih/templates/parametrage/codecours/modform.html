@@ -5,6 +5,7 @@
     <h1>Nouvelle institution</h1>
     <form method="post" action="/parametrage/codecours/controllercodecours/">{% csrf_token %}
         <input type="hidden" value="{{action}}" name="action">
+        <input type="hidden" name="id" value="{{ code.id }}">
 <table>
             <tr>
                 <td><label>Etablissement :</label></td>

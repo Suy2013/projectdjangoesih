@@ -3,11 +3,12 @@
 {% block content %}
 <div id="form" class="petitform">
     <h1>New user</h1><br/><br/>
-    <form method="POST" action="../controlleruser/">{% csrf_token %}
+    <form method="POST" action="/admin/user/controlleruser/">{% csrf_token %}
         <input type="hidden" value="{{action}}" name="action">
+
         <table>
             <tr>
-                <td><label>User type :</label></td>
+                <td><label>Type d'utilisateur :</label></td>
                 <td>
                     <select required="" name="type">
                         <option>{{type1}}</option>
@@ -19,28 +20,28 @@
                 <td><strong>{{error1}}</strong></td>
             </tr>
             <tr>
-                <td><label>Username :</label></td>
+                <td><label>Compte :</label></td>
                 <td>
                     <input type="text" name="username" required="" value="{{username}}"/>
                 </td>
                 <td><strong>{{error2}}</strong></td>
             </tr>
             <tr>
-                <td><label>Password :</label></td>
+                <td><label>Mot de passe :</label></td>
                 <td>
                     <input type="password" name="password" required=""/>
                 </td>
                 <td><strong>{{error3}}</strong></td>
             </tr>
             <tr>
-                <td><label>Firstname :</label></td>
+                <td><label>Prénom :</label></td>
                 <td>
                     <input type="text" name="firstname" required="" value="{{firstname}}"/>
                 </td>
                 <td><strong>{{error4}}</strong></td>
             </tr>
             <tr>
-                <td><label>Lastname :</label></td>
+                <td><label>Nom :</label></td>
                 <td>
                     <input type="text" name="lastname" required="" value="{{lastname}}"/>
                 </td>
@@ -54,7 +55,7 @@
                 <td><strong>{{error6}}</strong></td>
             </tr>
              <tr>
-                <td colspan="3" align="right"><input type="submit"></td>
+                <td></td><td align="right"><input type="submit" value="Enregitrer"></td><td></td>
             </tr>
         </table>
     </form>

@@ -2,11 +2,11 @@
 {% block title %}List{% endblock %}
 {% block content %}
 <div class="list">
-    <h1>Users</h1>
+    <h1>Utilisateurs</h1>
     <table class="table" summary="Meeting Results">
         <thead>
         <tr>
-            <th colspan="6" style="background: #fff;height:50px"><a href="../form/" style="margin-left:5px">Create</a>
+            <th colspan="6" style="background: #fff;height:50px"><a href="../form/" style="margin-left:5px">Créer</a>
             </th>
         </tr>
         <tr>
@@ -22,19 +22,22 @@
         {% for u in list %}
         <tr>
             {% ifnotequal user.username u.username %}
-            <td>{{u.lastname}}</td>
-            <td>{{u.firstname}}</td>
-            <td>{{u.username}}</td>
-            <td>{{u.type}}</td>
-            <td>{{u.active}}</td>
-            {% ifequal user.type "Super Admin" %}
+                <td>{{u.lastname}}</td>
+                <td>{{u.firstname}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.type}}</td>
+                <td>{{u.active}}</td>
+                {% ifequal u.type "Prof" %}
+                    <td><a href="/admin/user/change/{{u.id}}/">Modifier</a> <a
+                    href="/admin/user/delete/{{u.id}}/">Supprimer</a></td>
+                {% else %}
+                    {% ifequal user.type "Super Admin" %}
+                        <td><a href="/admin/user/change/{{u.id}}/">Modifier</a> <a
+                        href="/admin/user/delete/{{u.id}}/">Supprimer</a></td>
+                    {% endifequal %}
+                {% endifequal %}
 
-                    <td><a href="/admin/user/change/{{u.id}}/">Change</a> <a
-                    href="/admin/user/delete/{{u.id}}/">Delete</a></td>
-
-
-            {% endifequal %}
-        {% endifnotequal %}
+            {% endifnotequal %}
         </tr>
         {% endfor %}
         </tbody>

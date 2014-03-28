@@ -45,7 +45,7 @@ class ListField(models.TextField):
         return self.get_db_prep_value(value)
 
 class Cours(models.Model):
-    codecours = models.ForeignKey(CodeCours)
+    codecours = models.ForeignKey(CodeCours,unique=True)
     ects = models.IntegerField(max_length=1)
     prof = models.ManyToManyField(Professor)
     prerequis = models.ManyToManyField("Cours",null=True)

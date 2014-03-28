@@ -92,7 +92,6 @@ def deletablissement(request,id):
         return redirect("/admin/")
     user = manage.searchById(request.session['userid'])
 
-
     try:
            etablissement = manageEtablissement.searchById(id)
     except:
@@ -276,6 +275,14 @@ def delcodecours(request,id):
     user = manage.searchById(request.session['userid'])
     try:
         codecours = manageCodeCours.searchById(id)
+        if not manageCodeCours.isaffect(codecours):
+            pass
+        else:
+            message = "Vous ne pouvez pas supprimer ce code, il est affecté à un cours ."
+            dic = {'login':True,'nom': '', 'user': user,'message':message,'color':'red','title':'Avertissement!!!'}
+            t = get_template('parametrage/codeprogram/succdel.html')
+            html = t.render(Context(dic))
+            return HttpResponse(html)
     except:
          message = "Une erreur c'est produite!  Le système n'arrive pas à trouver le code demandé."
          dic = {'login':True,'code': '', 'user': user,'message':message,'title':'Avertissement!!!','color':'red'}
@@ -313,7 +320,8 @@ def controllercodecours(request):
                 html = t.render(Context(dic))
                 return HttpResponse(html)
             etablissement = manageCodeCours.findEtablissement(str(request.POST['etablissement']))
-            codeprogram=manageCodeProgram.searchById(request.POST['program'])
+
+            codeprogram=manageCodeProgram.searchById(CodeProgram.objects.get(code=request.POST['program']).id)
             codecours = CodeCours(codeprogram=codeprogram, etablissement=etablissement, nomcours=str(request.POST['nomcours']),
                                   grade=str(request.POST['grade']), semestre=str(request.POST['semestre']))
             codecours.code = "{}-{}{}-{}".format(etablissement.nom, str(request.POST['grade']),
@@ -462,7 +470,14 @@ def delcodeprogram(request,id):
     user = manage.searchById(request.session['userid'])
     try:
         codeprogram = manageCodeProgram.searchById(id)
-
+        if not manageCodeProgram.isaffect(codeprogram):
+            pass
+        else:
+            message = "Vous ne pouvez pas supprimer ce programme, il contient des cours ."
+            dic = {'login':True,'nom': '', 'user': user,'message':message,'color':'red','title':'Avertissement!!!'}
+            t = get_template('parametrage/codeprogram/succdel.html')
+            html = t.render(Context(dic))
+            return HttpResponse(html)
     except:
         message = "Une erreur c'est produite!  Le système n'arrive pas à trouver le code demandé."
         dic = {'login':True,'nom': '', 'user': user,'message':message,'color':'red','title':'Avertissement!!!'}
