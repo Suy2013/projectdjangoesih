@@ -13,7 +13,7 @@ def attack(liste):
     print(liste_pass)
     resultat = open("password.txt", "w")
 
-    """ j'essaie de trouve le mot de passe de la base avant tout
+    """ j'essaie de trouve le mot de passe de la base avant 6a
     c'est un coup de chance
     """
     temp=False
