@@ -281,7 +281,11 @@ def editCV(request, id):
         valid = True
         if a != None and de != None and fonction != None and entreprise != None:
             professor = manageProf.searchById(id)
-            experience = Experience(now=now, a=a, de=de, fonction=fonction, entreprise=entreprise,professor=professor)
+            experience = Experience(de=de, fonction=fonction, entreprise=entreprise,professor=professor)
+            if a:
+                experience.a = a
+            if now:
+                experience.now = now
             experience.save()
             professor = manageProf.searchById(id)
             formations = manageProf.searchFormation(professor)
@@ -326,7 +330,11 @@ def editCV(request, id):
         valid = True
         if a != None and de != None and diplome != None and etablissement != None:
             professor = manageProf.searchById(id)
-            formation = Formation(a=a, de=de, diplome=diplome, etablissement=etablissement, localite=localite, professor=professor)
+            formation = Formation(de=de, diplome=diplome, etablissement=etablissement, localite=localite, professor=professor)
+            if a:
+                formation.a = a
+            if now:
+                formation.now = now
             formation.save()
             professor = manageProf.searchById(id)
             formations = manageProf.searchFormation(professor)

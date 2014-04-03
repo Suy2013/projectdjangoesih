@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52d0e99a-c29d-426c-8f34-f343a8430cf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attack.py" afterPath="$PROJECT_DIR$/attack.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/professeur/editercv.html" afterPath="$PROJECT_DIR$/projectesih/templates/professeur/editercv.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/user/form.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/user/form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/cours/list.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/cours/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/user/list.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/user/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/user/mod.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/user/mod.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/templates/admin/user/repdel.html" afterPath="$PROJECT_DIR$/projectesih/templates/admin/user/repdel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projectesih/settings.py" afterPath="$PROJECT_DIR$/projectesih/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/views.py" afterPath="$PROJECT_DIR$/admin/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/professeur/views.py" afterPath="$PROJECT_DIR$/professeur/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projectesih.iws" />
@@ -26,19 +35,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="desciptioncours.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/desciptioncours.html">
+      <file leaf-file-name="editercv.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="44" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-4.3461537" vertical-offset="1111" max-vertical-offset="1530">
+            <state line="266" column="12" selection-start="11096" selection-end="11096" vertical-scroll-proportion="-4.230769" vertical-offset="4412" max-vertical-offset="6154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editercv.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
+      <file leaf-file-name="description.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/description.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="13" selection-start="8552" selection-end="8552" vertical-scroll-proportion="-12.192307" vertical-offset="2981" max-vertical-offset="6154">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="816">
+              <folding>
+                <marker date="1394528537739" expanded="true" signature="121:2100" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="266:2093" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="362:2081" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="437:1952" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="458:1934" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="611:1912" placeholder="..." />
+                <marker date="1394528537739" expanded="true" signature="665:1881" placeholder="{&quot;height&quot;: 380...}" />
+                <marker date="1394528537739" expanded="true" signature="745:1854" placeholder="[...]" />
+                <marker date="1394528537739" expanded="true" signature="1969:2064" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailscours.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="37" selection-start="286" selection-end="286" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1054">
+              <folding>
+                <element signature="e#340#368#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evaluation.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/evaluation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="27" selection-start="813" selection-end="813" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="816">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="31" selection-start="960" selection-end="960" vertical-scroll-proportion="0.04761905" vertical-offset="119" max-vertical-offset="16320">
               <folding />
             </state>
           </provider>
@@ -47,67 +95,16 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/professeur/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="0" selection-start="9814" selection-end="9814" vertical-scroll-proportion="0.0" vertical-offset="4162" max-vertical-offset="7922">
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="repform.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/repform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="21" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204">
+            <state line="397" column="49" selection-start="15677" selection-end="15677" vertical-scroll-proportion="-8.0" vertical-offset="6447" max-vertical-offset="7956">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/views.py">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="864" column="69" selection-start="36237" selection-end="36237" vertical-scroll-proportion="0.0" vertical-offset="303" max-vertical-offset="16575">
-              <folding>
-                <element signature="e#46#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="30" selection-start="3062" selection-end="3062" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1156">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.30743802" vertical-offset="1480" max-vertical-offset="2210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manage.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-              <folding>
-                <element signature="e#22#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="-0.0" vertical-offset="119" max-vertical-offset="1156">
+            <state line="56" column="41" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -126,8 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/repdel.html" />
-        <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/repform.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/succdel.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/codeExist.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/form.html" />
@@ -141,7 +136,6 @@
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/etablissement/repdel.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/etablissement/repmod.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/etablissement/succdel.html" />
-        <option value="$PROJECT_DIR$/projectesih/templates/professeur/editercv.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/formprof.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/list.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/professeur/mod.html" />
@@ -155,7 +149,6 @@
         <option value="$PROJECT_DIR$/projectesih/templates/static/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/repdel.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/succdel.html" />
-        <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/list.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/list.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/etablissement/list.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/list.html" />
@@ -165,18 +158,22 @@
         <option value="$PROJECT_DIR$/projectesih/templates/admin/serach.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/masterpage.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/search.html" />
-        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/list.html" />
-        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/mod.html" />
         <option value="$PROJECT_DIR$/admin/models.py" />
-        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/form.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/desciptioncours.html" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/form.html" />
         <option value="$PROJECT_DIR$/parametrage/views.py" />
         <option value="$PROJECT_DIR$/projectesih/templates/parametrage/codecours/modform.html" />
-        <option value="$PROJECT_DIR$/admin/views.py" />
-        <option value="$PROJECT_DIR$/projectesih/settings.py" />
-        <option value="$PROJECT_DIR$/professeur/views.py" />
         <option value="$PROJECT_DIR$/attack.py" />
+        <option value="$PROJECT_DIR$/projectesih/settings.py" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/list.html" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/form.html" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/list.html" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/mod.html" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/user/repdel.html" />
+        <option value="$PROJECT_DIR$/projectesih/templates/professeur/editercv.html" />
+        <option value="$PROJECT_DIR$/professeur/views.py" />
+        <option value="$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html" />
+        <option value="$PROJECT_DIR$/admin/views.py" />
       </list>
     </option>
   </component>
@@ -212,6 +209,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +296,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="projectesih" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectesih" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectesih" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="professeur" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -316,15 +336,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectesih" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectesih" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/buildchange" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesDjangoTemplate" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -428,27 +461,7 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="projectesih" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -474,7 +487,27 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="projectesih" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -586,13 +619,13 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3202417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3525926" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36238533" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -618,9 +651,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329429" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3525926" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -640,48 +673,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codecours/succdel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/codeExist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="2" selection-start="0" selection-end="2" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/repdel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="487">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/modform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/repform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codeprogram/repmod.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
@@ -734,13 +725,6 @@
     <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/formprof.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <folding />
         </state>
       </provider>
@@ -801,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="118" selection-start="354" selection-end="354" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/etablissement/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="77" selection-start="813" selection-end="813" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="646">
@@ -845,8 +822,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="17" selection-start="626" selection-end="626" vertical-scroll-proportion="-6.769231" vertical-offset="130" max-vertical-offset="544">
           <folding>
-            <element signature="e#428#487#0" expanded="true" />
-            <element signature="e#555#586#0" expanded="true" />
+            <element signature="e#428#487#0" expanded="false" />
+            <element signature="e#555#586#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -854,27 +831,6 @@
     <entry file="file://$PROJECT_DIR$/parametrage/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="30" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="748">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="38" selection-start="1285" selection-end="1285" vertical-scroll-proportion="-10.038462" vertical-offset="334" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/mod.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="253" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="44" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
@@ -888,9 +844,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/databasemanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.90957445" vertical-offset="729" max-vertical-offset="3145">
-          <folding />
-        </state>
+        <state line="68" column="0" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.90957445" vertical-offset="729" max-vertical-offset="3145" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/parametrage/codecours/modform.html">
@@ -907,20 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/desciptioncours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="44" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-4.3461537" vertical-offset="1111" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/readcv.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="17" selection-start="2991" selection-end="2991" vertical-scroll-proportion="-12.692307" vertical-offset="741" max-vertical-offset="2414">
@@ -930,39 +870,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/repform.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="13" selection-start="8552" selection-end="8552" vertical-scroll-proportion="-12.192307" vertical-offset="2981" max-vertical-offset="6154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/professeur/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="0" selection-start="9814" selection-end="9814" vertical-scroll-proportion="0.0" vertical-offset="4162" max-vertical-offset="7922">
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="864" column="69" selection-start="36237" selection-end="36237" vertical-scroll-proportion="0.0" vertical-offset="14671" max-vertical-offset="16575">
-          <folding>
-            <element signature="e#46#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectesih/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="30" selection-start="3062" selection-end="3062" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1156">
+        <state line="3" column="21" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
@@ -970,9 +878,7 @@
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -985,7 +891,140 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectesih/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.30743802" vertical-offset="1480" max-vertical-offset="2210">
+        <state line="108" column="9" selection-start="2656" selection-end="2656" vertical-scroll-proportion="0.0" vertical-offset="1561" max-vertical-offset="2210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="39" selection-start="3417" selection-end="3430" vertical-scroll-proportion="-35.64" vertical-offset="163" max-vertical-offset="1513">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="12" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.89375" vertical-offset="275" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/affectprof.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/desciptioncours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="44" selection-start="3226" selection-end="3226" vertical-scroll-proportion="3.825" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/description.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding>
+            <marker date="1394528537739" expanded="true" signature="121:2100" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="266:2093" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="362:2081" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="437:1952" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="458:1934" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="611:1912" placeholder="..." />
+            <marker date="1394528537739" expanded="true" signature="665:1881" placeholder="{&quot;height&quot;: 380...}" />
+            <marker date="1394528537739" expanded="true" signature="745:1854" placeholder="[...]" />
+            <marker date="1394528537739" expanded="true" signature="1969:2064" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/evaluation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="27" selection-start="813" selection-end="813" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="293" selection-end="293" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="207" selection-end="207" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/mod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="14" selection-start="136" selection-end="136" vertical-scroll-proportion="0.19767442" vertical-offset="0" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/repdel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="75" selection-end="75" vertical-scroll-proportion="0.09883721" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="94" selection-end="94" vertical-scroll-proportion="0.14825581" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/user/succdel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="259" selection-end="259" vertical-scroll-proportion="0.34593022" vertical-offset="0" max-vertical-offset="344">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/professeur/editercv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="266" column="12" selection-start="11096" selection-end="11096" vertical-scroll-proportion="-4.230769" vertical-offset="4412" max-vertical-offset="6154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/professeur/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="397" column="49" selection-start="15677" selection-end="15677" vertical-scroll-proportion="-8.0" vertical-offset="6447" max-vertical-offset="7956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectesih/templates/admin/cours/detailscours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="37" selection-start="286" selection-end="286" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1054">
+          <folding>
+            <element signature="e#340#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="41" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="31" selection-start="960" selection-end="960" vertical-scroll-proportion="0.04761905" vertical-offset="119" max-vertical-offset="16320">
           <folding />
         </state>
       </provider>

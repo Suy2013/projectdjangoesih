@@ -4,6 +4,11 @@
 <div>
 <button style="margin-left:5%;margin-top:20px;padding:5px">Print ou Télécharger le pdf</button><br/>
 <div id="editercv">
+
+    <h1>Crédit ECTS</h1>
+    <p>
+        {{cours.ects | safe}} crédits
+    </p><br/>
     <h1>Objectifs du cours</h1>
     <p style="padding-left: 100px;">
         {{cours.objectif | safe}}
@@ -35,7 +40,7 @@
     function Popup(data)
     {
         var mywindow = window.open('', 'editercv');
-        mywindow.document.write('<html><head><title>Curriculum Vitae</title>');
+        mywindow.document.write('<html><head><title>Description cours {{ cours.codecours.nomcours }}</title>');
         /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
         mywindow.document.write('</head><body >');
         mywindow.document.write(data);

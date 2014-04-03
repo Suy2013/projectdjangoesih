@@ -72,7 +72,7 @@ def home(request):
                             dictio[code.grade+"TEL"] = []
                 if code.codeprogram.domaine.__eq__(Domaine.ST):
                     if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
-                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                        if code.codeprogram.specialite.__eq__(Specialite.BDD):
                             dictio[code.grade+"BDD"] = []
             for code in codes:
                 print code
@@ -116,7 +116,7 @@ def home(request):
                                     dictio[code.grade+"TEL"] = list
                         if code.codeprogram.domaine.__eq__(Domaine.ST):
                             if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
-                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                if code.codeprogram.specialite.__eq__(Specialite.BDD):
                                     list = dictio[code.grade+"BDD"]
                                     list.append(managecours.calculNbrHreCours(cours[0].ects))
                                     dictio[code.grade+"BDD"] = list
@@ -189,7 +189,7 @@ def home(request):
                             dictio[code.grade+"TEL"] = []
                 if code.codeprogram.domaine.__eq__(Domaine.ST):
                     if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
-                        if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                        if code.codeprogram.specialite.__eq__(Specialite.BDD):
                             dictio[code.grade+"BDD"] = []
             for code in codes:
                 print code
@@ -233,7 +233,7 @@ def home(request):
                                     dictio[code.grade+"TEL"] = list
                         if code.codeprogram.domaine.__eq__(Domaine.ST):
                             if code.grade.__eq__(Grade.MASTERUN) and not code.grade.__eq__(Grade.MASTERDEUX):
-                                if code.codeprogram.specialite.__eq__(Specialite.TEL):
+                                if code.codeprogram.specialite.__eq__(Specialite.BDD):
                                     list = dictio[code.grade+"BDD"]
                                     list.append(cours[0].ects)
                                     dictio[code.grade+"BDD"] = list

@@ -2,7 +2,7 @@
 {% block title %}List{% endblock %}
 {% block content %}
 <div id="form" class="petitform">
-    <h1>New user</h1><br/><br/>
+    <h1>Profil</h1><br/><br/>
     <form method="POST" action="/admin/user/controlleruser/">{% csrf_token %}
         <input type="hidden" value="{{action}}" name="action">
         <table>

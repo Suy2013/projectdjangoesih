@@ -1,13 +1,15 @@
 {% extends "masterpage.html" %}
-{% block title %}List{% endblock %}
+{% block title %}Cours{% endblock %}
 {% block content %}
 {% load staticfiles %}
 <div class="list">
-    <h1>Utilisateur</h1>
+    <h1>Cours</h1>
     <table class="table" summary="Meeting Results">
         <thead>
         <tr>
-            <th colspan="6" style="background: #fff;height:50px"><a href="form/" style="margin-left:5px">Créer nouveau</a>
+             {%  ifnotequal user.type "Prof"  %}
+            <th colspan="6" style="background: #fff;height:50px"><a href="/admin/cours/form/" style="margin-left:5px">Créer nouveau</a>
+             {% endifnotequal %}
             </th>
         </tr>
         <tr>
@@ -69,7 +71,9 @@
                         </li>
                     </ul>
                 </td>
+            {%  ifnotequal user.type "Prof"  %}
                 <td><a href="/deldescriptioncours/{{ cours.id }}/">Supprimer</a> </td>
+            {% endifnotequal %}
             </tr>
             {% endfor %}
         </tbody>
